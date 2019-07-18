@@ -27,8 +27,8 @@ pipeline{
                 gitTool: 'Git_Centos',
                 submoduleCfg: [],
                 userRemoteConfigs: [[ 
-                credentialsId: 'GitHub_Antonio',
-                url:'https://github.com/AMiggel/Parqueadero-Ceiba'
+                credentialsId: 'GitHub_Antonio.hjs',
+                url:'https://github.com/AMiggel/Parqueadero-Ceiba.git'
                     ]]
                 ])
 
@@ -43,7 +43,7 @@ pipeline{
             steps{       
                 echo '------------>Análisis de código estático<------------'        
                 withSonarQubeEnv('Sonar') {
-                    sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"        
+                    sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"        
                                     }      
                              }    
                       }
