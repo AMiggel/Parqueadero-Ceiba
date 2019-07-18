@@ -20,9 +20,20 @@ pipeline{
       stages{
         stage('Checkout') {
              steps{
-                echo "------------>Checkout<------------"      
-                }    
+                echo "------------>Checkout<------------"
+                checkout([$class: 'GitSCM',
+                branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false,
+                extensions: [],
+                gitTool: 'Git_Centos',
+                submoduleCfg: [],
+                userRemoteConfigs: [[ 
+                credentialsId: 'GitHub_Antonio',
+                url:'https://github.com/AMiggel/Parqueadero-Ceiba'
+                    ]]
+                ])
+
             }    
+        }    
         stage('Compile & Unit Tests') {
             steps{
               echo "------------>Unit Tests<------------"     
