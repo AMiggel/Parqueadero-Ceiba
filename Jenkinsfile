@@ -1,7 +1,7 @@
 pipeline {
 //where and how to execute the Pipeline
 agent {
-label 'Slave_Induccion'
+    label 'Slave_Induccion'
 }
 
 options {
@@ -71,7 +71,7 @@ echo 'This will run only if successful'
 failure {
 echo 'This will run only if failed'
 //send notifications about a Pipeline to an email
-mail (to: 'fernan.roman@ceiba.com.co',
+mail (to: 'antonio.marin@ceiba.com.co',
      subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
      body: "Something is wrong with ${env.BUILD_URL}")
 }
