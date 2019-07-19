@@ -1,8 +1,8 @@
-package co.com.ceiba.comando.manejador;
+package co.com.ceiba.aplicacion.comando.manejador;
 
 import org.springframework.stereotype.Component;
 
-import co.com.ceiba.comando.ComandoParqueadero;
+import co.com.ceiba.aplicacion.comando.ComandoParqueadero;
 import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculoParqueadero;
 
 @Component

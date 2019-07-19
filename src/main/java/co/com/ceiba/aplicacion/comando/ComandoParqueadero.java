@@ -1,4 +1,4 @@
-package co.com.ceiba.comando;
+package co.com.ceiba.aplicacion.comando;
 
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
 
