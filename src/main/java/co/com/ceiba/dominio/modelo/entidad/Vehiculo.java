@@ -13,6 +13,7 @@ public class Vehiculo {
 	
 	private int cilindraje;
 	
+
 	
 	public int getId() {
 		return id;
@@ -39,6 +40,4 @@ public class Vehiculo {
 		this.cilindraje = cilindraje;
 	}
 	
-	
-
 }
