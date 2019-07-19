@@ -27,10 +27,3 @@ dependencies {
 
 }
 
-task hello {
- println 'Hello gradle'
-}
-
-task intro(dependsOn: hello){
-	println "esto es gradle"
-}
