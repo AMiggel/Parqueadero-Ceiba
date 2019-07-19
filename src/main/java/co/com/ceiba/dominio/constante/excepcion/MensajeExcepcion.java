@@ -10,7 +10,7 @@ public class MensajeExcepcion {
 	public static final String NO_PUEDE_PARQUEAR_MAS_CARROS="Parqueadero para carros lleno";
 	public static final String NO_PUEDE_PARQUEAR_MAS_MOTOS="Parqueadero para motos lleno";
 	public static final String VEHICULO_NO_ENCONTRADO_EN_PARQUEADERO= "El vehiculo no se encuentra parqueado";
-	public static final String VEHICULO_PARQUEADO="El vehiculo ya se encuentra parquado";
+	public static final String VEHICULO_PARQUEADO="El vehiculo ya se encuentra parqueado";
 
 
 }
