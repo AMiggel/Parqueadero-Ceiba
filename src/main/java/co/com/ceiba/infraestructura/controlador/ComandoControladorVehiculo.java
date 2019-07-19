@@ -10,13 +10,13 @@ import co.com.ceiba.aplicacion.comando.manejador.ManejadorRegistrarVehiculo;
 
 @RestController
 @RequestMapping("/parqueadero")
-public class ComandoControladorParqueadero {
+public class ComandoControladorVehiculo {
 	
 	
 	private final ManejadorRegistrarVehiculo manejadorRegistrarVehiculo;
 	
 	
-	public ComandoControladorParqueadero(ManejadorRegistrarVehiculo manejadorRegistrarVehiculo) {
+	public ComandoControladorVehiculo(ManejadorRegistrarVehiculo manejadorRegistrarVehiculo) {
 		this.manejadorRegistrarVehiculo = manejadorRegistrarVehiculo;
 	}
 

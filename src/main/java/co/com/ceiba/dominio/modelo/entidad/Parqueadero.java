@@ -1,18 +1,36 @@
 package co.com.ceiba.dominio.modelo.entidad;
 
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
+@Entity
 public class Parqueadero {
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int cantidadVehiculos;
+	
+	@Temporal(TemporalType.DATE)
 	private Date horaSalidaVehiculo;
+	
+	@Temporal(TemporalType.DATE)
 	private Date horaEntradaVehiculo;
 	
-	private Vehiculo vehiculo;
-	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "vehiculo_id")
+	private List<Vehiculo> vehiculos;
 	
 	
 	public int getId() {
@@ -39,11 +57,11 @@ public class Parqueadero {
 	public void setHoraEntradaVehiculo(Date horaEntradaVehiculo) {
 		this.horaEntradaVehiculo = horaEntradaVehiculo;
 	}
-	public Vehiculo getVehiculo() {
-		return vehiculo;
+	public List<Vehiculo> getVehiculos() {
+		return vehiculos;
 	}
-	public void setVehiculo(Vehiculo vehiculo) {
-		this.vehiculo = vehiculo;
+	public void setVehiculos(List<Vehiculo> vehiculos) {
+		this.vehiculos = vehiculos;
 	}
 	
 
