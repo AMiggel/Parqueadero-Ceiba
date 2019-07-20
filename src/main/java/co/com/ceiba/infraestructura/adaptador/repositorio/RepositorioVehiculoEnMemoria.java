@@ -1,5 +1,6 @@
 package co.com.ceiba.infraestructura.adaptador.repositorio;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
@@ -10,10 +11,10 @@ public class RepositorioVehiculoEnMemoria implements RepositorioParqueadero {
 	@Autowired
 	private IRepositorioVehiculoEnMemoria repositorioVehiculoEnMemoria;
 	
+	
 	public void registrarVehiculo(Vehiculo vehiculo) {
 		repositorioVehiculoEnMemoria.save(vehiculo);
-		
-		
+				
 	}
 
 }
