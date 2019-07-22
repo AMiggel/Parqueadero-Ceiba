@@ -26,8 +26,8 @@ public class RepositorioRegistroVehiculoEnMemoriaImpl implements RepositorioRegi
 		}
 
 	@Override
-	public boolean parqueado(Vehiculo vehiculo) {
-		return repositorioVehiculoEnMemoria.findByPlaca(vehiculo.getPlaca());
+	public boolean parqueado(String placa) {
+		return repositorioVehiculoEnMemoria.findByPlaca(placa);
 		 
 	}
 

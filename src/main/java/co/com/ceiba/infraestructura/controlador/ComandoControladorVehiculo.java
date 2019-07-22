@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.com.ceiba.aplicacion.comando.ComandoVehiculo;
 import co.com.ceiba.aplicacion.comando.manejador.ManejadorRegistrarVehiculo;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionCondicionPrevia;
 
 @RestController
 @RequestMapping("/parqueadero")
@@ -21,7 +22,7 @@ public class ComandoControladorVehiculo {
 	}
 
 	@PostMapping
-	public void registrar(@RequestBody ComandoVehiculo comandoVehiculo) {
+	public void registrar(@RequestBody ComandoVehiculo comandoVehiculo) throws ExcepcionCondicionPrevia {
 		
 		this.manejadorRegistrarVehiculo.ejecutar(comandoVehiculo);
 	}

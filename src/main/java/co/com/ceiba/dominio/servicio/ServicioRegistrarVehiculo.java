@@ -13,14 +13,14 @@ public class ServicioRegistrarVehiculo {
 		this.repositorioRegistroVehiculo = repositorioVehiculo;
 	}
 		
-	public void ejecutar(Vehiculo vehiculo) {
+	public void ejecutar(Vehiculo vehiculo) throws ExcepcionCondicionPrevia {
+		verificarVehiculoParqueado(vehiculo.getPlaca());
 		this.repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
 	}
 	
-	public void verificarVehiculoParqueado(Vehiculo vehiculo) throws ExcepcionCondicionPrevia {
-		
-		boolean parqueado = this.repositorioRegistroVehiculo.parqueado(vehiculo);
-		
+	public void verificarVehiculoParqueado(String placa) throws ExcepcionCondicionPrevia {
+	
+		boolean parqueado = this.repositorioRegistroVehiculo.parqueado(placa);
 		if (parqueado) {
 			throw new ExcepcionCondicionPrevia(MensajeExcepcion.VEHICULO_PARQUEADO);
 		}
