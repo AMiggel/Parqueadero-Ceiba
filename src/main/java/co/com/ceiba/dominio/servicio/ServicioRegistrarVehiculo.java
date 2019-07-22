@@ -1,5 +1,8 @@
 package co.com.ceiba.dominio.servicio;
 
+import java.util.Calendar;
+
+import co.com.ceiba.dominio.constante.condicion.CondicionesParqueadero;
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionCondicionPrevia;
 import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcion;
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
@@ -14,6 +17,7 @@ public class ServicioRegistrarVehiculo {
 	}
 		
 	public void ejecutar(Vehiculo vehiculo) throws ExcepcionCondicionPrevia {
+		validarTipoVehiculo(vehiculo.getTipoVehiculo());
 		verificarVehiculoParqueado(vehiculo.getPlaca());
 		this.repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
 	}
@@ -26,6 +30,20 @@ public class ServicioRegistrarVehiculo {
 		}
 	}
 	
+	public void validarTipoVehiculo(String tipoVehiculo) throws ExcepcionCondicionPrevia {
+	
+		if (tipoVehiculo != CondicionesParqueadero.MOTO && tipoVehiculo != CondicionesParqueadero.CARRO) {
+			throw new ExcepcionCondicionPrevia(MensajeExcepcion.NO_ES_CARRO_NI_MOTO);
+		}
+		
+	}
+	
+	public boolean esDomingoYLunes() {
+		return false;
+		}
+	}
 	
 	
-}
+	
+	
+

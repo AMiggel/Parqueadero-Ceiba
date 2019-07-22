@@ -32,4 +32,22 @@ public class ServicioRegistrarVehiculoTest {
 		assertEquals("El vehiculo ya se encuentra parqueado", e.getMessage());
 		}
 	}
+	
+
+	@Test
+	public void validarSiEsCarroOMoto() {
+		//Arrange
+		Vehiculo vehiculo =new  VehiculoTestDataBuilder().build();
+		RepositorioRegistroVehiculo repositorioRegistroVehiculo = Mockito.mock(RepositorioRegistroVehiculo.class);
+		Mockito.when(repositorioRegistroVehiculo.parqueado(vehiculo.getTipoVehiculo()));
+		
+		//act
+		servicioRegistrarVehiculo= new ServicioRegistrarVehiculo(repositorioRegistroVehiculo);
+		//assert
+		try {
+			servicioRegistrarVehiculo.validarTipoVehiculo(vehiculo.getTipoVehiculo());
+		} catch (ExcepcionCondicionPrevia e) {
+		assertEquals("Solo se permiten Carros y Motos", e.getMessage());
+		}
+	}
 }
