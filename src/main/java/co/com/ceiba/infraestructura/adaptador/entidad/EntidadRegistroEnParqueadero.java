@@ -31,7 +31,17 @@ public class EntidadRegistroEnParqueadero {
 	@JoinColumn(name = "vehiculo_id")
 	EntidadVehiculo vehiculo;
 
+	public EntidadRegistroEnParqueadero() {
+	}
 	
+	
+	public EntidadRegistroEnParqueadero( int cantidadVehiculos, Date horaSalidaVehiculo,
+			Date horaEntradaVehiculo, EntidadVehiculo vehiculo) {
+		this.cantidadVehiculos = cantidadVehiculos;
+		this.horaSalidaVehiculo = horaSalidaVehiculo;
+		this.horaEntradaVehiculo = horaEntradaVehiculo;
+		this.vehiculo = vehiculo;
+	}
 	public int getId() {
 		return id;
 	}

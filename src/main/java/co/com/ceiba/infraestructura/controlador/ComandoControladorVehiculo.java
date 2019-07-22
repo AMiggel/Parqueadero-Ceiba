@@ -1,7 +1,6 @@
 package co.com.ceiba.infraestructura.controlador;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +13,6 @@ import co.com.ceiba.aplicacion.comando.manejador.ManejadorRegistrarVehiculo;
 @RequestMapping("/parqueadero")
 public class ComandoControladorVehiculo {
 	
-	
-	@Autowired
 	private ManejadorRegistrarVehiculo manejadorRegistrarVehiculo;
 	
 	

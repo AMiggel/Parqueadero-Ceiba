@@ -1,37 +1,24 @@
 package co.com.ceiba.dominio.servicio;
 
-
-import java.util.Calendar;
-import java.util.Date;
-
-import co.com.ceiba.dominio.modelo.entidad.RegistroEnParqueadero;
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
-import co.com.ceiba.dominio.puerto.repositorio.RepositorioVehiculo;
+import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
 
 public class ServicioRegistrarVehiculo {
 
-	private RepositorioVehiculo repositorioParqueadero;
+	private RepositorioRegistroVehiculo repositorioRegistroVehiculo;
 	
-	private RegistroEnParqueadero registroEnParqueadero;
-	
-
-	
-	public ServicioRegistrarVehiculo(RepositorioVehiculo repositorioParqueadero) {
-		this.repositorioParqueadero = repositorioParqueadero;
+	public ServicioRegistrarVehiculo(RepositorioRegistroVehiculo repositorioVehiculo) {
+		this.repositorioRegistroVehiculo = repositorioVehiculo;
 	}
 		
 	public void ejecutar(Vehiculo vehiculo) {
-		registrarHoraIngreso(vehiculo);
-		this.repositorioParqueadero.registrarVehiculo(vehiculo);
+		this.repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
+	}
+	
+	public void verificarVehiculoParqueado(Vehiculo vehiculo) {
+		
 	}
 	
 	
-	private Date registrarHoraIngreso(Vehiculo vehiculo) {
-
-		registroEnParqueadero = new RegistroEnParqueadero();
-		Calendar calendar = Calendar.getInstance();
-		registroEnParqueadero.setHoraEntradaVehiculo(calendar.getTime());
-		registroEnParqueadero.setVehiculo(vehiculo);
-		return registroEnParqueadero.getHoraEntradaVehiculo();
-	}
+	
 }

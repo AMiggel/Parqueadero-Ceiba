@@ -10,12 +10,13 @@ public class VehiculoMapper {
 	
 	public EntidadVehiculo mappearAEntidad(Vehiculo vehiculo) {
 		
-		return new EntidadVehiculo(vehiculo.getId(),vehiculo.getPlaca(),vehiculo.getTipoVehiculo(),vehiculo.getCilindraje());
+		return new EntidadVehiculo(vehiculo.getId(),vehiculo.getTipoVehiculo(),vehiculo.getPlaca(),vehiculo.getCilindraje());
 	}
 	
 	public Vehiculo mappearADominio(EntidadVehiculo entidadVehiculo) {
 		return new Vehiculo(entidadVehiculo.getTipoVehiculo(),entidadVehiculo.getPlaca(), entidadVehiculo.getCilindraje());
 		
 	}
+	
 	
 }
