@@ -25,6 +25,12 @@ public class RepositorioRegistroVehiculoEnMemoriaImpl implements RepositorioRegi
 		repositorioVehiculoEnMemoria.save(vehiculoMapper.mappearAEntidad(vehiculo));
 		}
 
+	@Override
+	public boolean parqueado(Vehiculo vehiculo) {
+		return repositorioVehiculoEnMemoria.findByPlaca(vehiculo.getPlaca());
+		 
+	}
+
 
 
 	
