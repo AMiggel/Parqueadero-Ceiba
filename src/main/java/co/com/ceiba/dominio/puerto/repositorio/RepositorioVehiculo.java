@@ -2,7 +2,7 @@ package co.com.ceiba.dominio.puerto.repositorio;
 
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
 
-public interface RepositorioParqueadero{
+public interface RepositorioVehiculo{
 
-	void  registrarVehiculo(Vehiculo vehiculo);
+	public void  registrarVehiculo(Vehiculo vehiculo);
 }

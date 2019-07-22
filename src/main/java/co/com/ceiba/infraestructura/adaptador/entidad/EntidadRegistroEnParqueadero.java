@@ -1,7 +1,5 @@
-package co.com.ceiba.dominio.modelo.entidad;
-
+package co.com.ceiba.infraestructura.adaptador.entidad;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,17 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
 @Entity
-public class Parqueadero {
+public class EntidadRegistroEnParqueadero {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private int cantidadVehiculos;
 	
 	@Temporal(TemporalType.DATE)
@@ -28,10 +27,10 @@ public class Parqueadero {
 	@Temporal(TemporalType.DATE)
 	private Date horaEntradaVehiculo;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "vehiculo_id")
-	private List<Vehiculo> vehiculos;
-	
+	EntidadVehiculo vehiculo;
+
 	
 	public int getId() {
 		return id;
@@ -57,12 +56,13 @@ public class Parqueadero {
 	public void setHoraEntradaVehiculo(Date horaEntradaVehiculo) {
 		this.horaEntradaVehiculo = horaEntradaVehiculo;
 	}
-	public List<Vehiculo> getVehiculos() {
-		return vehiculos;
+	public EntidadVehiculo getVehiculo() {
+		return vehiculo;
 	}
-	public void setVehiculos(List<Vehiculo> vehiculos) {
-		this.vehiculos = vehiculos;
+	public void setVehiculo(EntidadVehiculo vehiculo) {
+		this.vehiculo = vehiculo;
 	}
+
 	
 
 	

@@ -1,5 +1,6 @@
 package co.com.ceiba.infraestructura.controlador;
 
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ import co.com.ceiba.aplicacion.comando.manejador.ManejadorRegistrarVehiculo;
 public class ComandoControladorVehiculo {
 	
 	
-	private final ManejadorRegistrarVehiculo manejadorRegistrarVehiculo;
+	private ManejadorRegistrarVehiculo manejadorRegistrarVehiculo;
 	
 	
 	public ComandoControladorVehiculo(ManejadorRegistrarVehiculo manejadorRegistrarVehiculo) {
@@ -22,7 +23,9 @@ public class ComandoControladorVehiculo {
 
 	@PostMapping
 	public void registrar(@RequestBody ComandoVehiculo comandoVehiculo) {
+		System.out.println("controlador");
 		this.manejadorRegistrarVehiculo.ejecutar(comandoVehiculo);
 	}
+	
 	
 }

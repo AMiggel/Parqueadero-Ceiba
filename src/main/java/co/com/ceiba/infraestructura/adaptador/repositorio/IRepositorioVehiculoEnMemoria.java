@@ -1,9 +1,11 @@
 package co.com.ceiba.infraestructura.adaptador.repositorio;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
+import co.com.ceiba.infraestructura.adaptador.entidad.EntidadVehiculo;
 
-public interface IRepositorioVehiculoEnMemoria extends JpaRepository<Vehiculo, Integer>{
+@Repository
+public interface IRepositorioVehiculoEnMemoria extends CrudRepository<EntidadVehiculo, Integer>{
 
 }

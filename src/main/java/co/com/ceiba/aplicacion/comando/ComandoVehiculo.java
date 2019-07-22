@@ -9,7 +9,12 @@ public class ComandoVehiculo {
 	private String tipoVehiculo;
 	private int cilindraje;
 	
-	
+
+	/*public ComandoVehiculo(String placa, String tipoVehiculo, int cilindraje) {
+		this.placa = placa;
+		this.tipoVehiculo = tipoVehiculo;
+		this.cilindraje = cilindraje;
+	}*/
 	public String getPlaca() {
 		return placa;
 	}
@@ -19,6 +24,16 @@ public class ComandoVehiculo {
 	public int getCilindraje() {
 		return cilindraje;
 	}
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+	public void setTipoVehiculo(String tipoVehiculo) {
+		this.tipoVehiculo = tipoVehiculo;
+	}
+	public void setCilindraje(int cilindraje) {
+		this.cilindraje = cilindraje;
+	}
+	
 
 	
 	

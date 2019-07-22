@@ -1,23 +1,6 @@
 package co.com.ceiba.dominio.modelo.entidad;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class Vehiculo implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -490731065330814251L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+public class Vehiculo {
 	
 	private String tipoVehiculo;
 	
@@ -25,6 +8,10 @@ public class Vehiculo implements Serializable {
 	
 	private int cilindraje;
 	
+	
+	public Vehiculo() {
+		
+	}
 	public Vehiculo(String tipoVehiculo, String placa, int cilindraje) {
 	
 		this.tipoVehiculo = tipoVehiculo;
@@ -50,5 +37,7 @@ public class Vehiculo implements Serializable {
 	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
 	}
+
+	
 	
 }

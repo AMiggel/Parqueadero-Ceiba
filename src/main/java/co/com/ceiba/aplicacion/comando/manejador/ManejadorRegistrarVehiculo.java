@@ -11,16 +11,17 @@ import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculoParqueadero;
 public class ManejadorRegistrarVehiculo {
 	
 	private final ServicioRegistrarVehiculoParqueadero servicioRegistrarVehiculo;
-	private final FabricaVehiculo fabricaParqueadero;
+	private final FabricaVehiculo fabricaVehiculo;
 	
 	public ManejadorRegistrarVehiculo(ServicioRegistrarVehiculoParqueadero servicioRegistrarVehiculo,
-			FabricaVehiculo fabricaParqueadero) {
+			FabricaVehiculo fabricaVehiculo) {
 		this.servicioRegistrarVehiculo= servicioRegistrarVehiculo;
-		this.fabricaParqueadero = fabricaParqueadero;
+		this.fabricaVehiculo= fabricaVehiculo;
 	}
 	
-	public void ejecutar(ComandoVehiculo comandoParqueadero) {
-		Vehiculo vehiculo= this.fabricaParqueadero.registrar(comandoParqueadero);
+	public void ejecutar(ComandoVehiculo comandoVehiculo) {
+		Vehiculo vehiculo= this.fabricaVehiculo.registrar(comandoVehiculo);
 	   servicioRegistrarVehiculo.ejecutar(vehiculo);
+	   System.out.println("Ejecutar manejador");
 	}
 }
