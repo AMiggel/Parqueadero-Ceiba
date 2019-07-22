@@ -3,8 +3,10 @@ package co.com.ceiba.infraestructura.adaptador.servicio;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
-import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculoParqueadero;
+import co.com.ceiba.aplicacion.comando.fabrica.FabricaVehiculo;
+import co.com.ceiba.aplicacion.comando.manejador.ManejadorRegistrarVehiculo;
+import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
+import co.com.ceiba.infraestructura.adaptador.repositorio.IRepositorioVehiculoEnMemoria;
 import co.com.ceiba.infraestructura.adaptador.repositorio.RepositorioVehiculoEnMemoriaImpl;
 import co.com.ceiba.infraestructura.mapper.VehiculoMapper;
 
@@ -12,8 +14,13 @@ import co.com.ceiba.infraestructura.mapper.VehiculoMapper;
 public class BeanServicio {
 	
 	@Bean
-	public ServicioRegistrarVehiculoParqueadero servicioRegistrarVehiculoParqueadero() {
-		return new ServicioRegistrarVehiculoParqueadero(new RepositorioVehiculoEnMemoriaImpl(new VehiculoMapper()));
+	public ServicioRegistrarVehiculo servicioRegistrarVehiculoParqueadero(IRepositorioVehiculoEnMemoria repositorioVehiculoEnMemoria) {
+		return new ServicioRegistrarVehiculo(new RepositorioVehiculoEnMemoriaImpl(new VehiculoMapper(), repositorioVehiculoEnMemoria));
+	}
+	
+	@Bean
+	public ManejadorRegistrarVehiculo manejadorRegistrarVehiculo(ServicioRegistrarVehiculo servicioRegistrarVehiculo, FabricaVehiculo fabricaVehiculo) {
+		return new ManejadorRegistrarVehiculo(servicioRegistrarVehiculo, fabricaVehiculo);
 	}
 
 }

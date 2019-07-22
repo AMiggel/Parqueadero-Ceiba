@@ -2,17 +2,15 @@ package co.com.ceiba.dominio.modelo.entidad;
 
 public class Vehiculo {
 	
+	private int id;
+	
 	private String tipoVehiculo;
 	
 	private String placa;
 	
 	private int cilindraje;
 	
-	
-	public Vehiculo() {
-		
-	}
-	public Vehiculo(String tipoVehiculo, String placa, int cilindraje) {
+	public Vehiculo( String tipoVehiculo, String placa, int cilindraje) {
 	
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
@@ -36,6 +34,14 @@ public class Vehiculo {
 	}
 	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	

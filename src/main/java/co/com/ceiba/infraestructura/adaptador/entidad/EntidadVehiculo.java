@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-@Entity
+@Entity(name = "vehiculos")
 public class EntidadVehiculo implements Serializable {
 	
 	/**
@@ -17,7 +17,7 @@ public class EntidadVehiculo implements Serializable {
 	private static final long serialVersionUID = -490731065330814251L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	private String tipoVehiculo;
@@ -30,11 +30,12 @@ public class EntidadVehiculo implements Serializable {
 	public EntidadVehiculo() {
 		
 	}
-	public EntidadVehiculo(String tipoVehiculo, String placa, int cilindraje) {
+	public EntidadVehiculo(int id, String tipoVehiculo, String placa, int cilindraje) {
 	
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
 		this.cilindraje = cilindraje;
+		this.id = id;
 	}
 
 	public String getTipoVehiculo() {
