@@ -14,20 +14,5 @@ public class ServicioRegistrarVehiculoTest {
 	private RepositorioRegistroVehiculo repositorioRegistroVehiculo;
 	
 	
-	@Test
-	public void registrarVehiculo() throws ExcepcionCondicionPrevia {
-		
-		//arrange
-		Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
-		repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
-		ServicioRegistrarVehiculo servicioRegistrarVehiculo= new ServicioRegistrarVehiculo(repositorioRegistroVehiculo);
-		//act
-		
-		servicioRegistrarVehiculo.ejecutar(vehiculo);
-		
-		//assert
-		
-		
-	}
 
 }
