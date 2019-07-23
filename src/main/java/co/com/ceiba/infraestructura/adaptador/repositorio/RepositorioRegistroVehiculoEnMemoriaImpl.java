@@ -1,7 +1,7 @@
 package co.com.ceiba.infraestructura.adaptador.repositorio;
 
 
-import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
+import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
 import co.com.ceiba.infraestructura.mapper.VehiculoMapper;
 

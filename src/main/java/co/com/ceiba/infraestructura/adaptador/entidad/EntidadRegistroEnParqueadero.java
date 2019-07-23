@@ -42,6 +42,7 @@ public class EntidadRegistroEnParqueadero {
 		this.horaEntradaVehiculo = horaEntradaVehiculo;
 		this.vehiculo = vehiculo;
 	}
+	
 	public int getId() {
 		return id;
 	}

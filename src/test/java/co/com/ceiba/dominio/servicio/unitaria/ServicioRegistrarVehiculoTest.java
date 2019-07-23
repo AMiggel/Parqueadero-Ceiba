@@ -9,9 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionCondicionPrevia;
-import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcionRegistroDeVehiculo;
-import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionLongitudDeValor;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
+import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
 import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
 import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
@@ -28,7 +29,7 @@ public class ServicioRegistrarVehiculoTest {
 	
 	
 	@Test
-	public void validarSiEstaParqueado() {
+	public void validarSiEstaParqueado() throws ExcepcionValorObligatorio, ExcepcionRegistroParqueadero, ExcepcionLongitudDeValor {
 		//Arrange
 		Vehiculo vehiculo =new  VehiculoTestDataBuilder().build();
 		RepositorioRegistroVehiculo repositorioRegistroVehiculo = Mockito.mock(RepositorioRegistroVehiculo.class);
@@ -40,30 +41,16 @@ public class ServicioRegistrarVehiculoTest {
 			servicioRegistrarVehiculo.verificarVehiculoParqueado(vehiculo.getPlaca());
 			fail();
 			//assert	
-		} catch (ExcepcionCondicionPrevia e) {
+		} catch (ExcepcionValorObligatorio e) {
 		assertEquals("El vehiculo ya se encuentra parqueado", e.getMessage());
 		}
 	}
 	
 
-	@Test
-	public void validarSiEsCarroOMoto() {
-		//Arrange
-		Vehiculo vehiculo =new  VehiculoTestDataBuilder().conTipo("Bicicleta").build();
-	
-		//act
-		try {
-			servicioRegistrarVehiculo.validarTipoVehiculo(vehiculo.getTipoVehiculo());
-			fail();
 
-		//assert
-		} catch (ExcepcionCondicionPrevia e) {
-		assertEquals("Solo se permiten Carros y Motos", e.getMessage());
-		}
-	}
 	
 	@Test
-	public void validarSiEsDomingoOLunes() throws ExcepcionCondicionPrevia {
+	public void validarSiEsDomingoOLunes() throws ExcepcionValorObligatorio {
 		//arrange
 		Mockito.when(servicioRegistrarVehiculo.ingresaDomingoOLunes()).thenReturn(true);
 		

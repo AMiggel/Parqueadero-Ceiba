@@ -1,6 +1,9 @@
 package co.com.ceiba.dominio.testdatabuilder;
 
-import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionLongitudDeValor;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
+import co.com.ceiba.dominio.modelo.Vehiculo;
 
 public class VehiculoTestDataBuilder {
 	
@@ -30,7 +33,8 @@ public class VehiculoTestDataBuilder {
 		return this;
 	}
 	
-	public Vehiculo build() {
+	public Vehiculo build() throws ExcepcionValorObligatorio,
+	ExcepcionRegistroParqueadero, ExcepcionLongitudDeValor {
 		return new Vehiculo(tipoVehiculo,placa,cilindraje);
 	}
 

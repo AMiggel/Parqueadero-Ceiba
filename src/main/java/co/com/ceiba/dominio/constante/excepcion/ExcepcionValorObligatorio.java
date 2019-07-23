@@ -1,6 +1,6 @@
 package co.com.ceiba.dominio.constante.excepcion;
 
-public class ExcepcionCondicionPrevia extends Exception{
+public class ExcepcionValorObligatorio extends Exception{
 
 	/**
 	 * 
@@ -8,7 +8,7 @@ public class ExcepcionCondicionPrevia extends Exception{
 	private static final long serialVersionUID = -468436968100507057L;
 	private final String mensaje;
 
-	public ExcepcionCondicionPrevia (String mensaje) {
+	public ExcepcionValorObligatorio (String mensaje) {
 		super(mensaje);
 		this.mensaje = mensaje;
 	}
