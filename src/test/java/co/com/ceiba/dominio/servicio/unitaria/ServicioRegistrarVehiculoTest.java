@@ -1,15 +1,19 @@
-package co.com.ceiba.dominio.servicio;
+package co.com.ceiba.dominio.servicio.unitaria;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionCondicionPrevia;
+import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcion;
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
+import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
 import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
 
 public class ServicioRegistrarVehiculoTest {
@@ -47,6 +51,7 @@ public class ServicioRegistrarVehiculoTest {
 		//Arrange
 		Vehiculo vehiculo =new  VehiculoTestDataBuilder().conTipo("Bicicleta").build();
 	
+		//act
 		try {
 			servicioRegistrarVehiculo.validarTipoVehiculo(vehiculo.getTipoVehiculo());
 			fail();
@@ -56,4 +61,19 @@ public class ServicioRegistrarVehiculoTest {
 		assertEquals("Solo se permiten Carros y Motos", e.getMessage());
 		}
 	}
-}
+	
+	@Test
+	public void validarSiEsDomingoOLunes() throws ExcepcionCondicionPrevia {
+		//arrange
+		Mockito.when(servicioRegistrarVehiculo.ingresaDomingoOLunes()).thenReturn(true);
+		
+		//act
+		
+		boolean esDomingoOLunes = servicioRegistrarVehiculo.ingresaDomingoOLunes();
+			
+		//assert
+			assertTrue(esDomingoOLunes);
+		}
+		
+	}
+

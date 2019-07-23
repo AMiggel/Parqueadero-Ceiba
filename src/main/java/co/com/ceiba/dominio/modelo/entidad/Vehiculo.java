@@ -20,6 +20,7 @@ public class Vehiculo {
 	public String getTipoVehiculo() {
 		return tipoVehiculo;
 	}
+	
 	public void setTipoVehiculo(String tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 	}

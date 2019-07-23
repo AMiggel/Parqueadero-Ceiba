@@ -32,6 +32,7 @@ public class RepositorioRegistroVehiculoEnMemoriaImpl implements RepositorioRegi
 	}
 
 	
+	
 
 
 	

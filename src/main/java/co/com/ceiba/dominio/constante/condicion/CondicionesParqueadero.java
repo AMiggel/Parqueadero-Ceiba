@@ -3,7 +3,6 @@ package co.com.ceiba.dominio.constante.condicion;
 public class CondicionesParqueadero {
 	
 	public static final double CILINDRAJE_MINIMO_MOTO_SIN_RECARGO = 500;
-	public static final String INICIAL_PLACA_CON_RESTRICCION= "A";
 	public static final String MOTO= "moto";
 	public static final String CARRO = "carro";
 	public static final double VALOR_HORA_CARRO = 1000; 

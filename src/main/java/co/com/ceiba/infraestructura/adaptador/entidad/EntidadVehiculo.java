@@ -69,4 +69,5 @@ public class EntidadVehiculo implements Serializable {
 
 	
 	
+	
 }
