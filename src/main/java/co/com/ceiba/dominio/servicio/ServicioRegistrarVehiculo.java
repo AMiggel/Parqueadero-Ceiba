@@ -2,11 +2,10 @@ package co.com.ceiba.dominio.servicio;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 
-import co.com.ceiba.dominio.constante.condicion.CondicionesParqueadero;
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionCondicionPrevia;
-import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcion;
+import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcionRegistroDeVehiculo;
+import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcionRegistroEnParqueadero;
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
 
@@ -14,8 +13,9 @@ public class ServicioRegistrarVehiculo {
 
 	private RepositorioRegistroVehiculo repositorioRegistroVehiculo;
 
-	public ServicioRegistrarVehiculo() {
-	}
+	public static final String MOTO= "moto";
+	public static final String CARRO = "carro";
+
 
 	//constructor
 	public ServicioRegistrarVehiculo(RepositorioRegistroVehiculo repositorioVehiculo) {
@@ -25,7 +25,7 @@ public class ServicioRegistrarVehiculo {
 
 	public void ejecutar(Vehiculo vehiculo) throws ExcepcionCondicionPrevia {
 		validarTipoVehiculo(vehiculo.getTipoVehiculo());
-		verificarVehiculoParqueado(vehiculo.getPlaca());
+		//verificarVehiculoParqueado(vehiculo.getPlaca());
 		
 		if (placaIniciaConA(vehiculo.getPlaca())) {
 			ingresaDomingoOLunes();
@@ -39,25 +39,25 @@ public class ServicioRegistrarVehiculo {
 
 		boolean parqueado = this.repositorioRegistroVehiculo.parqueado(placa);
 		if (parqueado) {
-			throw new ExcepcionCondicionPrevia(MensajeExcepcion.VEHICULO_PARQUEADO);
+			throw new ExcepcionCondicionPrevia(MensajeExcepcionRegistroDeVehiculo.VEHICULO_PARQUEADO);
 		}
 	}
 
 	public void validarTipoVehiculo(String tipoVehiculo) throws ExcepcionCondicionPrevia {
 
-		if (tipoVehiculo != CondicionesParqueadero.MOTO && tipoVehiculo != CondicionesParqueadero.CARRO) {
-			throw new ExcepcionCondicionPrevia(MensajeExcepcion.NO_ES_CARRO_NI_MOTO);
+		if (tipoVehiculo != MOTO && tipoVehiculo != CARRO) {
+			throw new ExcepcionCondicionPrevia(MensajeExcepcionRegistroEnParqueadero.NO_ES_CARRO_NI_MOTO);
 		}
 
 	}
-
+ 	
 	public boolean ingresaDomingoOLunes() throws ExcepcionCondicionPrevia  {
 
 		if (LocalDateTime.now().getDayOfWeek() == DayOfWeek.SUNDAY
 				|| LocalDateTime.now().getDayOfWeek() == DayOfWeek.MONDAY) {
 			return true;
 		} 
-		throw new ExcepcionCondicionPrevia(MensajeExcepcion.PLACA_INICIA_CON_A);
+		throw new ExcepcionCondicionPrevia(MensajeExcepcionRegistroDeVehiculo.PLACA_INICIA_CON_A);
 	}
 	
 

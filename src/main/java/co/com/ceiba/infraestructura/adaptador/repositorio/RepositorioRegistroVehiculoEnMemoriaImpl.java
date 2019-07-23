@@ -30,6 +30,7 @@ public class RepositorioRegistroVehiculoEnMemoriaImpl implements RepositorioRegi
 		return repositorioVehiculoEnMemoria.findByPlaca(placa);
 		 
 	}
+	
 
 	
 	

@@ -1,6 +1,6 @@
 package co.com.ceiba.dominio.modelo.entidad;
 
-public class Vehiculo {
+public class Vehiculo{
 	
 	private int id;
 	
@@ -10,12 +10,16 @@ public class Vehiculo {
 	
 	private int cilindraje;
 	
+	public Vehiculo() {
+		
+	}
 	public Vehiculo( String tipoVehiculo, String placa, int cilindraje) {
-	
+		super();
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
 		this.cilindraje = cilindraje;
 	}
+	
 
 	public String getTipoVehiculo() {
 		return tipoVehiculo;

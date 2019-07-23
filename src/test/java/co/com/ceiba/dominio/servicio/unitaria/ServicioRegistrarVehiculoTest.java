@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionCondicionPrevia;
-import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcion;
+import co.com.ceiba.dominio.constante.excepcion.MensajeExcepcionRegistroDeVehiculo;
 import co.com.ceiba.dominio.modelo.entidad.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
 import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
@@ -20,10 +20,10 @@ public class ServicioRegistrarVehiculoTest {
 
 	ServicioRegistrarVehiculo servicioRegistrarVehiculo;
 
-	
+	RepositorioRegistroVehiculo repositorioRegistroVehiculo;
 	@Before
 	public void setUp() {
-		servicioRegistrarVehiculo = new ServicioRegistrarVehiculo();
+		servicioRegistrarVehiculo = new ServicioRegistrarVehiculo(repositorioRegistroVehiculo);
 	}
 	
 	
