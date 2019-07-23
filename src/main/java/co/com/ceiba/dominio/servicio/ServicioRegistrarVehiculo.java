@@ -12,6 +12,9 @@ public class ServicioRegistrarVehiculo {
 
 	private RepositorioRegistroVehiculo repositorioRegistroVehiculo;
 	
+	public ServicioRegistrarVehiculo() {
+		}
+	
 	public ServicioRegistrarVehiculo(RepositorioRegistroVehiculo repositorioVehiculo) {
 		this.repositorioRegistroVehiculo = repositorioVehiculo;
 	}
@@ -27,7 +30,7 @@ public class ServicioRegistrarVehiculo {
 		boolean parqueado = this.repositorioRegistroVehiculo.parqueado(placa);
 		if (parqueado) {
 			throw new ExcepcionCondicionPrevia(MensajeExcepcion.VEHICULO_PARQUEADO);
-		}
+		} 
 	}
 	
 	public void validarTipoVehiculo(String tipoVehiculo) throws ExcepcionCondicionPrevia {
@@ -38,8 +41,16 @@ public class ServicioRegistrarVehiculo {
 		
 	}
 	
-	public boolean esDomingoYLunes() {
-		return false;
+	public boolean ingresaDomingoOLunes() {
+			Calendar calendar= Calendar.getInstance();
+			
+			if (calendar.DAY_OF_WEEK == calendar.MONDAY ||calendar.DAY_OF_WEEK == calendar.SUNDAY ) {
+				
+				return true;
+			}else {
+				return false;
+			}
+		
 		}
 	}
 	
