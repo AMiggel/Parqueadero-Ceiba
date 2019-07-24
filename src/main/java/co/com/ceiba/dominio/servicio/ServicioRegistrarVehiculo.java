@@ -4,7 +4,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
 

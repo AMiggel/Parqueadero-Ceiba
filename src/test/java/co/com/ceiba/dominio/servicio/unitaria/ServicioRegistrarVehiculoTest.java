@@ -41,26 +41,14 @@ public class ServicioRegistrarVehiculoTest {
 			servicioRegistrarVehiculo.verificarVehiculoParqueado(vehiculo.getPlaca());
 			fail();
 			//assert	
-		} catch (ExcepcionValorObligatorio e) {
+		} catch (ExcepcionRegistroParqueadero e) {
 		assertEquals("El vehiculo ya se encuentra parqueado", e.getMessage());
 		}
 	}
 	
 
 
-	
-	@Test
-	public void validarSiEsDomingoOLunes() throws ExcepcionValorObligatorio {
-		//arrange
-		Mockito.when(servicioRegistrarVehiculo.ingresaDomingoOLunes()).thenReturn(true);
-		
-		//act
-		
-		boolean esDomingoOLunes = servicioRegistrarVehiculo.ingresaDomingoOLunes();
-			
-		//assert
-			assertTrue(esDomingoOLunes);
-		}
+
 		
 	}
 
