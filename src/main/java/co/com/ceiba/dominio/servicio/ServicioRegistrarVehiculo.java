@@ -3,6 +3,7 @@ package co.com.ceiba.dominio.servicio;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
@@ -21,41 +22,36 @@ public class ServicioRegistrarVehiculo {
 	}
 	
 
-	public void ejecutar(Vehiculo vehiculo) throws ExcepcionValorObligatorio {
-		//verificarVehiculoParqueado(vehiculo.getPlaca());
+	public void ejecutar(Vehiculo vehiculo) throws ExcepcionRegistroParqueadero {
+		validarPlacaIniciaConA(vehiculo.getPlaca().toUpperCase());
 		
-		if (placaIniciaConA(vehiculo.getPlaca())) {
-			ingresaDomingoOLunes();
-			this.repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
-		}
 		this.repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
 	}
 
 	
-	public void verificarVehiculoParqueado(String placa) throws ExcepcionValorObligatorio {
+	public void verificarVehiculoParqueado(String placa) throws ExcepcionRegistroParqueadero {
 
 		boolean parqueado = this.repositorioRegistroVehiculo.parqueado(placa);
 		if (parqueado) {
-			throw new ExcepcionValorObligatorio(VEHICULO_PARQUEADO);
+			throw new ExcepcionRegistroParqueadero(VEHICULO_PARQUEADO);
 		}
 	}
 
  	
-	public boolean ingresaDomingoOLunes() throws ExcepcionValorObligatorio  {
+	public boolean ingresaDomingoOLunes() throws ExcepcionRegistroParqueadero  {
 
 		if (LocalDateTime.now().getDayOfWeek() == DayOfWeek.SUNDAY
 				|| LocalDateTime.now().getDayOfWeek() == DayOfWeek.MONDAY) {
 			return true;
 		} 
-		throw new ExcepcionValorObligatorio(PLACA_INICIA_CON_A);
+		throw new ExcepcionRegistroParqueadero(PLACA_INICIA_CON_A);
 	}
 	
 
-	public boolean placaIniciaConA(String placa)  {
-		placa.toUpperCase();
-		
+	public boolean validarPlacaIniciaConA(String placa) throws ExcepcionRegistroParqueadero  {
+				
 		if (placa.charAt(0) == 'A') {
-			return true;
+			ingresaDomingoOLunes();	
 		}
 		return false;
 	}
