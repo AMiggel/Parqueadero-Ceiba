@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
 import co.com.ceiba.dominio.modelo.Vehiculo;
-import co.com.ceiba.dominio.puerto.repositorio.vehiculo.RepositorioRegistrarVehiculo;
+import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistrarVehiculo;
 import co.com.ceiba.dominio.servicio.vehiculo.ServicioRegistrarVehiculo;
 import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
 

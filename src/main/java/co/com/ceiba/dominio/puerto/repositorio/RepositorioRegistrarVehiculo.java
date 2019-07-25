@@ -1,4 +1,4 @@
-package co.com.ceiba.dominio.puerto.repositorio.vehiculo;
+package co.com.ceiba.dominio.puerto.repositorio;
 
 
 import co.com.ceiba.dominio.modelo.Vehiculo;
@@ -18,4 +18,7 @@ public interface RepositorioRegistrarVehiculo{
 	 * @param placa
 	 */
 	public Vehiculo buscarVehiculoParqueado(String placa);
+		
+	public int verificarEspacioDisponible(String tipoVehiculo);
+
 }

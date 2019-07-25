@@ -1,7 +1,7 @@
 package co.com.ceiba.dominio.servicio.integracion;
 
 
-import co.com.ceiba.dominio.puerto.repositorio.vehiculo.RepositorioRegistrarVehiculo;
+import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistrarVehiculo;
 
 
 public class ServicioRegistrarVehiculoTest {
