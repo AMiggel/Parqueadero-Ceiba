@@ -24,8 +24,6 @@ public class ManejadorRegistrarVehiculo {
 		return servicioRegistrarVehiculo.buscarVehiculoParqueado(placa);
 	}
 
-	public void mostrarCuposDisponibles(String tipoVehiculo) {
-		servicioRegistrarVehiculo.verificarCupoDisponible(tipoVehiculo);
-	}
+
 
 }
