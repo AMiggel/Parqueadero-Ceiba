@@ -18,8 +18,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class ConfiguracionSwagger {
+	
 	@Bean
-
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(getApiInfo())
 				.consumes(Sets.newHashSet("application/json")).produces(Sets.newHashSet("application/json")).select()

@@ -1,8 +1,8 @@
 package co.com.ceiba.dominio.testdatabuilder;
 
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionLongitudDeValor;
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
+
+import java.util.Date;
+
 import co.com.ceiba.dominio.modelo.Vehiculo;
 
 public class VehiculoTestDataBuilder {
@@ -13,6 +13,10 @@ public class VehiculoTestDataBuilder {
 	private String placa;
 	
 	private int cilindraje;
+	
+	private Date horaEntrada;
+	
+	private Date horaSalida;
 	
 	public VehiculoTestDataBuilder() {
 		this.tipoVehiculo="Carro";
@@ -33,9 +37,24 @@ public class VehiculoTestDataBuilder {
 		return this;
 	}
 	
-	public Vehiculo build() throws ExcepcionValorObligatorio,
-	ExcepcionRegistroParqueadero, ExcepcionLongitudDeValor {
-		return new Vehiculo(tipoVehiculo,placa,cilindraje);
+	public Date getHoraEntrada() {
+		return horaEntrada;
+	}
+
+	public Date getHoraSalida() {
+		return horaSalida;
+	}
+
+	public void setHoraEntrada(Date horaEntrada) {
+		this.horaEntrada = horaEntrada;
+	}
+
+	public void setHoraSalida(Date horaSalida) {
+		this.horaSalida = horaSalida;
+	}
+
+	public Vehiculo build(){
+		return new Vehiculo(tipoVehiculo,placa,cilindraje,horaEntrada,horaSalida);
 	}
 
 }

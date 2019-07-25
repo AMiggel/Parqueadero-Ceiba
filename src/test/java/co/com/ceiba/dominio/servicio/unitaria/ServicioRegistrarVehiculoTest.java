@@ -1,27 +1,24 @@
 package co.com.ceiba.dominio.servicio.unitaria;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionLongitudDeValor;
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
 import co.com.ceiba.dominio.modelo.Vehiculo;
-import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistroVehiculo;
-import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
+import co.com.ceiba.dominio.puerto.repositorio.vehiculo.RepositorioRegistrarVehiculo;
+import co.com.ceiba.dominio.servicio.vehiculo.ServicioRegistrarVehiculo;
 import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
 
 public class ServicioRegistrarVehiculoTest {
 
 	ServicioRegistrarVehiculo servicioRegistrarVehiculo;
 
-	RepositorioRegistroVehiculo repositorioRegistroVehiculo;
+	RepositorioRegistrarVehiculo repositorioRegistroVehiculo;
+	
 	@Before
 	public void setUp() {
 		servicioRegistrarVehiculo = new ServicioRegistrarVehiculo(repositorioRegistroVehiculo);
@@ -29,21 +26,18 @@ public class ServicioRegistrarVehiculoTest {
 	
 	
 	@Test
-	public void validarSiEstaParqueado() throws ExcepcionValorObligatorio, ExcepcionRegistroParqueadero, ExcepcionLongitudDeValor {
+	public void buscarVehiculoTest() {
 		//Arrange
 		Vehiculo vehiculo =new  VehiculoTestDataBuilder().build();
-		RepositorioRegistroVehiculo repositorioRegistroVehiculo = Mockito.mock(RepositorioRegistroVehiculo.class);
-		Mockito.when(repositorioRegistroVehiculo.parqueado(vehiculo.getPlaca())).thenReturn(true);
+		RepositorioRegistrarVehiculo repositorioRegistroVehiculo = Mockito.mock(RepositorioRegistrarVehiculo.class);
+		Mockito.when(repositorioRegistroVehiculo.buscarVehiculoParqueado(vehiculo.getPlaca())).thenReturn(vehiculo);
 		
 		//act
 		servicioRegistrarVehiculo = new ServicioRegistrarVehiculo(repositorioRegistroVehiculo);
-		try {
-			servicioRegistrarVehiculo.verificarVehiculoParqueado(vehiculo.getPlaca());
-			fail();
-			//assert	
-		} catch (ExcepcionRegistroParqueadero e) {
-		assertEquals("El vehiculo ya se encuentra parqueado", e.getMessage());
-		}
+		
+		Vehiculo vehiculoEsperado= servicioRegistrarVehiculo.buscarVehiculoParqueado(vehiculo.getPlaca());
+		//assert	
+		assertEquals(vehiculo, vehiculoEsperado);
 	}
 	
 

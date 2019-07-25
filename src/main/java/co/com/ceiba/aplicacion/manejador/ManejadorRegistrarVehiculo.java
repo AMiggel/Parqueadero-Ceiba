@@ -4,11 +4,8 @@ package co.com.ceiba.aplicacion.manejador;
 
 
 import co.com.ceiba.aplicacion.fabrica.FabricaVehiculo;
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionLongitudDeValor;
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
 import co.com.ceiba.dominio.modelo.Vehiculo;
-import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
+import co.com.ceiba.dominio.servicio.vehiculo.ServicioRegistrarVehiculo;
 
 public class ManejadorRegistrarVehiculo  {
 	
@@ -22,9 +19,14 @@ public class ManejadorRegistrarVehiculo  {
 		this.fabricaVehiculo= fabricaVehiculo;
 	}
 	
-	public void ejecutar(Vehiculo vehiculo) throws ExcepcionValorObligatorio, ExcepcionRegistroParqueadero, ExcepcionLongitudDeValor {
+	public void ejecutar(Vehiculo vehiculo){
 		Vehiculo vehiculoCreado= this.fabricaVehiculo.registrar(vehiculo);
 	   servicioRegistrarVehiculo.ejecutar(vehiculoCreado);
+	}
+	
+	public Vehiculo buscarVehiculosParqueados(String placa){
+		
+		return servicioRegistrarVehiculo.buscarVehiculoParqueado(placa);
 	}
 	
 }
