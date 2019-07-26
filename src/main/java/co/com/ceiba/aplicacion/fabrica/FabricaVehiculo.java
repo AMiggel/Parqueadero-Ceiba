@@ -8,7 +8,7 @@ import co.com.ceiba.dominio.modelo.Vehiculo;
 public class FabricaVehiculo {
 	
 	public Vehiculo registrar(Vehiculo vehiculo) {
-		return new Vehiculo(vehiculo.getTipoVehiculo(),vehiculo.getPlaca(),vehiculo.getCilindraje(),
+		return new Vehiculo(vehiculo.getId(),vehiculo.getValorParqueo(),vehiculo.getTipoVehiculo(),vehiculo.getPlaca(),vehiculo.getCilindraje(),
 				vehiculo.getHoraIngreso(),vehiculo.getHoraSalida());
 	}
 }

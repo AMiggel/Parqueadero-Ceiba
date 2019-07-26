@@ -1,9 +1,9 @@
 package co.com.ceiba.infraestructura.controlador;
 
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,8 +31,15 @@ public class ControladorRegistrarVehiculo {
 	
 	@GetMapping(value = "/{placa}")
 	@ApiOperation("buscarCarroParqueado")
-	public 	Vehiculo buscarCarroParqueado(@PathVariable(value ="placa")String placa) {
+	public Vehiculo buscarCarroParqueado(@PathVariable(value ="placa")String placa) {
 		return this.manejadorRegistrarVehiculo.buscarVehiculosParqueados(placa);
+	}
+	
+	@PutMapping(value="/{placa}")
+	public void actualizarSalidaVehiculo(@PathVariable(value="placa")String placa,
+			@RequestBody Vehiculo vehiculo) {
+		this.manejadorRegistrarVehiculo.actualizarSalida(vehiculo);
+		
 	}
 	
 	

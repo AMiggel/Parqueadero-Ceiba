@@ -20,24 +20,27 @@ public class Vehiculo {
 	private Date horaSalida;
 	private String tipoVehiculo;
 	private String placa;
+	private long cobroParqueo;
 
 	private int cilindraje;
 
 	public Vehiculo() {
 	}
 
-	public Vehiculo(String tipoVehiculo, String placa, int cilindraje,Date horaIngreso, Date horaSalida) {
+	public Vehiculo(int id,long cobroParqueo, String tipoVehiculo, String placa, int cilindraje,Date horaIngreso, Date horaSalida) {
 		ValidadorArgumento.validarCampoObligatorio(tipoVehiculo, TIPO_VEHICULO_ES_VALOR_OBLIGATORIO);
 		ValidadorArgumento.validarCampoObligatorio(placa, PLACA_ES_VALOR_OBLIGATORIO);
 		ValidadorArgumento.validarCampoObligatorio(cilindraje, CILINDRAJE_ES_VALOR_OBLIGATORIO);
 		ValidadorArgumento.validarLongitudDeCampo(placa, LONGITUD_MINIMA_PLACA, LA_LONGITUD_DE_PLACA_ES_MAYOR);
 		ValidadorArgumento.validarTipoCarro(tipoVehiculo, TIPO_VEHICULO_DEBE_SER_CARRO_MOTO);
 
+		this.id= id;
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
 		this.cilindraje = cilindraje;
 		this.horaIngreso= horaIngreso;
 		this.horaSalida= horaSalida;
+		this.cobroParqueo = cobroParqueo;
 		
 	}
 
@@ -85,4 +88,11 @@ public class Vehiculo {
 		this.horaSalida = horaSalida;
 	}
 
+	public long getValorParqueo() {
+		return cobroParqueo;
+	}
+
+	public void setValorParqueo(long cobroParqueo) {
+		this.cobroParqueo = cobroParqueo;
+	}
 }

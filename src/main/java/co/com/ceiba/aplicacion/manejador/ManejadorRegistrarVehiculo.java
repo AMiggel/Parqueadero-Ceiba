@@ -2,16 +2,21 @@ package co.com.ceiba.aplicacion.manejador;
 
 import co.com.ceiba.aplicacion.fabrica.FabricaVehiculo;
 import co.com.ceiba.dominio.modelo.Vehiculo;
+import co.com.ceiba.dominio.servicio.ServicioRegistrarSalidaVehiculo;
 import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
 
 public class ManejadorRegistrarVehiculo {
 
 	private ServicioRegistrarVehiculo servicioRegistrarVehiculo;
+	private ServicioRegistrarSalidaVehiculo servicioRegistrarSalidaVehiculo;
 	private FabricaVehiculo fabricaVehiculo;
 
+	
+
 	public ManejadorRegistrarVehiculo(ServicioRegistrarVehiculo servicioRegistrarVehiculo,
-			FabricaVehiculo fabricaVehiculo) {
+			ServicioRegistrarSalidaVehiculo servicioRegistrarSalidaVehiculo, FabricaVehiculo fabricaVehiculo) {
 		this.servicioRegistrarVehiculo = servicioRegistrarVehiculo;
+		this.servicioRegistrarSalidaVehiculo = servicioRegistrarSalidaVehiculo;
 		this.fabricaVehiculo = fabricaVehiculo;
 	}
 
@@ -24,6 +29,7 @@ public class ManejadorRegistrarVehiculo {
 		return servicioRegistrarVehiculo.buscarVehiculoParqueado(placa);
 	}
 
-
-
+	public void actualizarSalida(Vehiculo vehiculo) {
+		servicioRegistrarSalidaVehiculo.registrarSalidaVehiculos(vehiculo);
+	}
 }

@@ -16,7 +16,5 @@ public interface IRepositorioRegistrarVehiculoEnMemoria extends JpaRepository<En
 	
 	@Query("select count(v.id) from vehiculos v where v.tipoVehiculo = :tipoVehiculo and v.horaSalida is null")
 	int contarEspacioDisponiblePorTipo(@Param("tipoVehiculo") String tipoVehiculo);
-
-
 }
  

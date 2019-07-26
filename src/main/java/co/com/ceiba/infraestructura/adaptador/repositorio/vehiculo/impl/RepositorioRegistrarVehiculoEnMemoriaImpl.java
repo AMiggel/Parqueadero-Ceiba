@@ -1,7 +1,8 @@
-package co.com.ceiba.infraestructura.adaptador.repositorio.vehiculo;
+package co.com.ceiba.infraestructura.adaptador.repositorio.vehiculo.impl;
 
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistrarVehiculo;
+import co.com.ceiba.infraestructura.adaptador.repositorio.vehiculo.IRepositorioRegistrarVehiculoEnMemoria;
 import co.com.ceiba.infraestructura.mapper.VehiculoMapper;
 
 public class RepositorioRegistrarVehiculoEnMemoriaImpl implements RepositorioRegistrarVehiculo {
@@ -33,4 +34,5 @@ public class RepositorioRegistrarVehiculoEnMemoriaImpl implements RepositorioReg
 		return this.repositorioVehiculoEnMemoria.contarEspacioDisponiblePorTipo(tipoVehiculo);
 	}
 
+	
 }

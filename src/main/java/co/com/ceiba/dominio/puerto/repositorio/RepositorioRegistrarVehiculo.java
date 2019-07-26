@@ -19,6 +19,11 @@ public interface RepositorioRegistrarVehiculo{
 	 */
 	public Vehiculo buscarVehiculoParqueado(String placa);
 		
+	/**
+	 * devuelve el numero de vehiculos cuando la salida es null
+	 * para saber cuantos hay en el parqueadero
+	 * @param tipoVehiculo
+	 */
 	public int verificarEspacioDisponible(String tipoVehiculo);
 
 }

@@ -8,6 +8,7 @@ import co.com.ceiba.dominio.modelo.Vehiculo;
 public class VehiculoTestDataBuilder {
 	
 
+	private int id;
 	private String tipoVehiculo;
 	
 	private String placa;
@@ -17,6 +18,7 @@ public class VehiculoTestDataBuilder {
 	private Date horaEntrada;
 	
 	private Date horaSalida;
+	private long cobroParqueo;
 	
 	public VehiculoTestDataBuilder() {
 		this.tipoVehiculo="Carro";
@@ -42,7 +44,7 @@ public class VehiculoTestDataBuilder {
 	}
 
 	public Vehiculo build(){
-		return new Vehiculo(tipoVehiculo,placa,cilindraje,horaEntrada,horaSalida);
+		return new Vehiculo(id,cobroParqueo,tipoVehiculo,placa,cilindraje,horaEntrada,horaSalida);
 	}
 
 }

@@ -32,13 +32,15 @@ public class EntidadVehiculo implements Serializable {
 	private Date horaEntrada;
 	
 	private Date horaSalida;
+	
+	private long cobroParqueo;
 
 	
 	public EntidadVehiculo() {
 
 	}
 
-	public EntidadVehiculo(int id, String tipoVehiculo, String placa, int cilindraje, Date horaEntrada,
+	public EntidadVehiculo(int id, long cobroParqueo,String tipoVehiculo, String placa, int cilindraje, Date horaEntrada,
 			Date horaSalida) {
 
 		this.id = id;
@@ -47,6 +49,7 @@ public class EntidadVehiculo implements Serializable {
 		this.cilindraje = cilindraje;
 		this.horaEntrada = horaEntrada;
 		this.horaSalida = horaSalida;
+		this.cobroParqueo= cobroParqueo;
 	}
 
 	public int getId() {
@@ -99,6 +102,14 @@ public class EntidadVehiculo implements Serializable {
 
 	public void setHoraSalida(Date horaSalida) {
 		this.horaSalida = horaSalida;
+	}
+
+	public long getCobroParqueo() {
+		return cobroParqueo;
+	}
+
+	public void setCobroParqueo(long cobroParqueo) {
+		this.cobroParqueo = cobroParqueo;
 	}
 
 	
