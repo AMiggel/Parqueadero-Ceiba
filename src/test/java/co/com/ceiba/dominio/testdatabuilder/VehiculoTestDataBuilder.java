@@ -32,25 +32,10 @@ public class VehiculoTestDataBuilder {
 		this.placa= placa;
 		return this;
 	}
-	public VehiculoTestDataBuilder conCilindraje(int cilindraje) {
-		this.cilindraje= cilindraje;
-		return this;
-	}
 	
-	public Date getHoraEntrada() {
-		return horaEntrada;
-	}
-
-	public Date getHoraSalida() {
-		return horaSalida;
-	}
-
-	public void setHoraEntrada(Date horaEntrada) {
+	public VehiculoTestDataBuilder conHoraEntrada(Date horaEntrada) {
 		this.horaEntrada = horaEntrada;
-	}
-
-	public void setHoraSalida(Date horaSalida) {
-		this.horaSalida = horaSalida;
+		return this;
 	}
 
 	public Vehiculo build(){

@@ -17,9 +17,9 @@ public class ServicioRegistrarVehiculo {
 	public static final String VEHICULO_PARQUEADO = "El vehiculo ya se encuentra parqueado";
 	public static final String LIMITE_DE_CARROS_EXCEDIDO = "No se pueden parquear más carros";
 	public static final String LIMITE_DE_MOTOS_EXCEDIDO = "No se pueden parquear más motos";
-	public static char INICIAL_PLACA_CON_RESTRICCION= 'A';
+	public static char INICIAL_PLACA_CON_RESTRICCION = 'A';
 	public static final String MOTO = "moto";
-	public static final String CARRO = "moto";
+	public static final String CARRO = "carro";
 	public static final int ESPACIO_DISPONIBLE_CARROS = 20;
 	public static final int ESPACIO_DISPONIBLE_MOTOS = 10;
 
@@ -30,6 +30,7 @@ public class ServicioRegistrarVehiculo {
 
 	public void ejecutar(Vehiculo vehiculo) {
 		verificarCupoDisponibleCarro(vehiculo.getTipoVehiculo());
+		verificarCupoDisponibleMoto(vehiculo.getTipoVehiculo());
 		validarPlacaInicialConA(vehiculo.getPlaca().toUpperCase());
 		vehiculo.setHoraIngreso(registrarHoraEntrada());
 		this.repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
@@ -47,7 +48,6 @@ public class ServicioRegistrarVehiculo {
 				throw new ExcepcionRegistroParqueadero(PLACA_INICIA_CON_A);
 			}
 		}
-
 	}
 
 	public Date registrarHoraEntrada() {
@@ -58,11 +58,16 @@ public class ServicioRegistrarVehiculo {
 	}
 
 	public void verificarCupoDisponibleCarro(String tipoVehiculo) {
-		
-		int numeroCarrosParqueados = repositorioRegistroVehiculo.verificarEspacioDisponible(tipoVehiculo);
-		System.out.println(numeroCarrosParqueados);
-		if ( tipoVehiculo.equalsIgnoreCase(CARRO) && numeroCarrosParqueados >= ESPACIO_DISPONIBLE_CARROS) {
+		int numeroCarrosParqueados = repositorioRegistroVehiculo.verificarEspacioDisponible(tipoVehiculo);		
+		if (tipoVehiculo.equalsIgnoreCase(CARRO) && numeroCarrosParqueados >= ESPACIO_DISPONIBLE_CARROS) {
 			throw new ExcepcionRegistroParqueadero(LIMITE_DE_CARROS_EXCEDIDO);
+		}
+	}
+
+	public void verificarCupoDisponibleMoto(String tipoVehiculo) {
+		int numeroMotosParqueadas = repositorioRegistroVehiculo.verificarEspacioDisponible(tipoVehiculo);
+		if (tipoVehiculo.equalsIgnoreCase(MOTO) && numeroMotosParqueadas >= ESPACIO_DISPONIBLE_MOTOS) {
+			throw new ExcepcionRegistroParqueadero(LIMITE_DE_MOTOS_EXCEDIDO);
 		}
 	}
 

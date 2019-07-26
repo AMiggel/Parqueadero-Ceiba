@@ -6,11 +6,11 @@ import co.com.ceiba.dominio.modelo.validador.ValidadorArgumento;
 
 public class Vehiculo {
 
-	private static final String PLACA_ES_VALOR_OBLIGATORIO = "La placa es un valor obligatorio";
-	private static final String TIPO_VEHICULO_ES_VALOR_OBLIGATORIO = "El tipo de vehiculo es un valor obligatorio";
-	private static final String CILINDRAJE_ES_VALOR_OBLIGATORIO = "El cilindraje es valor Obligatorio";
-	private static final String LA_LONGITUD_DE_PLACA_ES_MAYOR = "La longitud de la placa debe ser mayor";
-	private static final int LONGITUD_MINIMA_PLACA = 5;
+	public static final String PLACA_ES_VALOR_OBLIGATORIO = "La placa es un valor obligatorio";
+	public static final String TIPO_VEHICULO_ES_VALOR_OBLIGATORIO = "El tipo de vehiculo es un valor obligatorio";
+	public static final String CILINDRAJE_ES_VALOR_OBLIGATORIO = "El cilindraje es valor Obligatorio";
+	public static final String LA_LONGITUD_DE_PLACA_ES_MAYOR = "La longitud de la placa debe ser mayor";
+	public static final int LONGITUD_MINIMA_PLACA = 5;
 
 	private int id;
 	private Date horaIngreso;

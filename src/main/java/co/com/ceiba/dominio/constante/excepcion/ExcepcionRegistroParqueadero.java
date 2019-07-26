@@ -13,7 +13,6 @@ public class ExcepcionRegistroParqueadero extends RuntimeException {
 	public ExcepcionRegistroParqueadero (String mensaje) {
 		super(mensaje);
 	
-
 	}
 }
 

@@ -20,15 +20,5 @@ public class ValidadorArgumento {
 		}
 	}
 	
-	public static void validarCapacidadDisponibleMoto(int valor,int capacidad, String mensaje) {
-		if(valor < capacidad) {
-			throw new ExcepcionRegistroParqueadero(mensaje);
-		}
-	}
-	public static void validarCapacidadDisponibleCarro(int valor,int capacidad, String mensaje) {
-		if (valor < capacidad) {
-			throw new ExcepcionRegistroParqueadero(mensaje);
-		}
-	}
 	
 }
