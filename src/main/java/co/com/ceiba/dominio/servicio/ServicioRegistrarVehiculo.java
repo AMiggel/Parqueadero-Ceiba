@@ -1,4 +1,4 @@
-package co.com.ceiba.dominio.servicio.vehiculo;
+package co.com.ceiba.dominio.servicio;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
@@ -18,8 +18,6 @@ public class ServicioRegistrarVehiculo {
 	public static final String LIMITE_DE_CARROS_EXCEDIDO = "No se pueden parquear más carros";
 	public static final String LIMITE_DE_MOTOS_EXCEDIDO = "No se pueden parquear más motos";
 	public static char INICIAL_PLACA_CON_RESTRICCION = 'A';
-	public static final String MOTO = "moto";
-	public static final String CARRO = "carro";
 	public static final int ESPACIO_DISPONIBLE_CARROS = 20;
 	public static final int ESPACIO_DISPONIBLE_MOTOS = 10;
 
@@ -38,9 +36,9 @@ public class ServicioRegistrarVehiculo {
 	}
 
 	public Vehiculo buscarVehiculoParqueado(String placa) {
-		return repositorioRegistroVehiculo.buscarVehiculoParqueado(placa);
+		return this.repositorioRegistroVehiculo.buscarVehiculoParqueado(placa);
 	}
-
+	
 	public void validarPlacaInicialConA(String placa) {
 		if (placa.charAt(0) == INICIAL_PLACA_CON_RESTRICCION) {
 			if (LocalDateTime.now().getDayOfWeek() != DayOfWeek.SUNDAY
@@ -59,14 +57,14 @@ public class ServicioRegistrarVehiculo {
 
 	public void verificarCupoDisponibleCarro(String tipoVehiculo) {
 		int numeroCarrosParqueados = repositorioRegistroVehiculo.verificarEspacioDisponible(tipoVehiculo);		
-		if (tipoVehiculo.equalsIgnoreCase(CARRO) && numeroCarrosParqueados >= ESPACIO_DISPONIBLE_CARROS) {
+		if (tipoVehiculo.equalsIgnoreCase(Vehiculo.CARRO) && numeroCarrosParqueados >= ESPACIO_DISPONIBLE_CARROS) {
 			throw new ExcepcionRegistroParqueadero(LIMITE_DE_CARROS_EXCEDIDO);
 		}
 	}
 
 	public void verificarCupoDisponibleMoto(String tipoVehiculo) {
 		int numeroMotosParqueadas = repositorioRegistroVehiculo.verificarEspacioDisponible(tipoVehiculo);
-		if (tipoVehiculo.equalsIgnoreCase(MOTO) && numeroMotosParqueadas >= ESPACIO_DISPONIBLE_MOTOS) {
+		if (tipoVehiculo.equalsIgnoreCase(Vehiculo.MOTO) && numeroMotosParqueadas >= ESPACIO_DISPONIBLE_MOTOS) {
 			throw new ExcepcionRegistroParqueadero(LIMITE_DE_MOTOS_EXCEDIDO);
 		}
 	}

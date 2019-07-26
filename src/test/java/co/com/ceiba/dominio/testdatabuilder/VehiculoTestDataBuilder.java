@@ -20,8 +20,11 @@ public class VehiculoTestDataBuilder {
 	
 	public VehiculoTestDataBuilder() {
 		this.tipoVehiculo="Carro";
-		this.placa="ABC123";
+		this.placa="FBC123";
 		this.cilindraje= 500;
+		this.horaEntrada= new Date();
+		this.horaSalida= null;
+		
 	}
 	
 	public VehiculoTestDataBuilder conTipo(String tipoVehiculo) {

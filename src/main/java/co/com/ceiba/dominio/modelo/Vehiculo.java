@@ -10,7 +10,10 @@ public class Vehiculo {
 	public static final String TIPO_VEHICULO_ES_VALOR_OBLIGATORIO = "El tipo de vehiculo es un valor obligatorio";
 	public static final String CILINDRAJE_ES_VALOR_OBLIGATORIO = "El cilindraje es valor Obligatorio";
 	public static final String LA_LONGITUD_DE_PLACA_ES_MAYOR = "La longitud de la placa debe ser mayor";
+	public static final String TIPO_VEHICULO_DEBE_SER_CARRO_MOTO="El tipo de vehiculo debe ser carro o moto";
 	public static final int LONGITUD_MINIMA_PLACA = 5;
+	public static final String MOTO = "moto";
+	public static final String CARRO = "carro";
 
 	private int id;
 	private Date horaIngreso;
@@ -28,6 +31,7 @@ public class Vehiculo {
 		ValidadorArgumento.validarCampoObligatorio(placa, PLACA_ES_VALOR_OBLIGATORIO);
 		ValidadorArgumento.validarCampoObligatorio(cilindraje, CILINDRAJE_ES_VALOR_OBLIGATORIO);
 		ValidadorArgumento.validarLongitudDeCampo(placa, LONGITUD_MINIMA_PLACA, LA_LONGITUD_DE_PLACA_ES_MAYOR);
+		ValidadorArgumento.validarTipoCarro(tipoVehiculo, TIPO_VEHICULO_DEBE_SER_CARRO_MOTO);
 
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import co.com.ceiba.aplicacion.fabrica.FabricaVehiculo;
 import co.com.ceiba.aplicacion.manejador.ManejadorRegistrarVehiculo;
-import co.com.ceiba.dominio.servicio.vehiculo.ServicioRegistrarVehiculo;
+import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
 import co.com.ceiba.infraestructura.adaptador.repositorio.vehiculo.IRepositorioRegistrarVehiculoEnMemoria;
 import co.com.ceiba.infraestructura.adaptador.repositorio.vehiculo.RepositorioRegistrarVehiculoEnMemoriaImpl;
 import co.com.ceiba.infraestructura.mapper.VehiculoMapper;

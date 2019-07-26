@@ -2,7 +2,7 @@ package co.com.ceiba.aplicacion.manejador;
 
 import co.com.ceiba.aplicacion.fabrica.FabricaVehiculo;
 import co.com.ceiba.dominio.modelo.Vehiculo;
-import co.com.ceiba.dominio.servicio.vehiculo.ServicioRegistrarVehiculo;
+import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
 
 public class ManejadorRegistrarVehiculo {
 

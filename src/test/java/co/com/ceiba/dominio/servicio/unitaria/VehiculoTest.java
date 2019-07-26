@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionLongitudDeValor;
+import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
@@ -56,6 +57,21 @@ public class VehiculoTest {
 		// assert
 		} catch (ExcepcionLongitudDeValor e) {
 			assertEquals(Vehiculo.LA_LONGITUD_DE_PLACA_ES_MAYOR, e.getMessage());
+		}
+
+	}
+	@Test
+	public void validarTipoVehiculoSeaValido() {
+		// Arrange
+		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+	
+		// act
+		try {
+			vehiculoTestDataBuilder.conTipo("bicicleta").build();
+			fail();
+		// assert
+		} catch (ExcepcionRegistroParqueadero e) {
+			assertEquals(Vehiculo.TIPO_VEHICULO_DEBE_SER_CARRO_MOTO, e.getMessage());
 		}
 
 	}

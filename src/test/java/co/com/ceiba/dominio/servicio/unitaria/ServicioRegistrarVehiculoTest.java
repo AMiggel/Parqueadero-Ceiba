@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistrarVehiculo;
-import co.com.ceiba.dominio.servicio.vehiculo.ServicioRegistrarVehiculo;
+import co.com.ceiba.dominio.servicio.ServicioRegistrarVehiculo;
 import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
 
 public class ServicioRegistrarVehiculoTest {
@@ -29,7 +29,7 @@ public class ServicioRegistrarVehiculoTest {
 	}
 
 	@Test
-	public void buscarVehiculoTest() {
+	public void buscarVehiculoParqueadoRetornaVehiculo() {
 		// Arrange
 		Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
 		Mockito.when(repositorioRegistroVehiculo.buscarVehiculoParqueado(vehiculo.getPlaca())).thenReturn(vehiculo);
@@ -39,6 +39,7 @@ public class ServicioRegistrarVehiculoTest {
 		// assert
 		assertEquals(vehiculo, vehiculoEsperado);
 	}
+
 
 	@Test
 	public void verificarCupoDisponibleParaCarro() {
