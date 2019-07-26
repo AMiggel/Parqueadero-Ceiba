@@ -17,7 +17,7 @@ public class ServicioRegistrarVehiculo {
 	public static final String VEHICULO_PARQUEADO = "El vehiculo ya se encuentra parqueado";
 	public static final String LIMITE_DE_CARROS_EXCEDIDO = "No se pueden parquear más carros";
 	public static final String LIMITE_DE_MOTOS_EXCEDIDO = "No se pueden parquear más motos";
-	public static char INICIAL_PLACA_CON_RESTRICCION = 'A';
+	public static final char INICIAL_PLACA_CON_RESTRICCION = 'A';
 	public static final int ESPACIO_DISPONIBLE_CARROS = 20;
 	public static final int ESPACIO_DISPONIBLE_MOTOS = 10;
 
