@@ -7,6 +7,9 @@ import co.com.ceiba.dominio.modelo.Vehiculo;
 
 public class ValidadorArgumento {
 	
+	private ValidadorArgumento() {
+		
+	}
 	
 	public static void validarCampoObligatorio(Object valor, String mensaje){
 			if (valor == null) {

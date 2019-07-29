@@ -86,20 +86,14 @@ public class ServicioRegistrarVehiculoTest {
 		try {
 			servicioRegistrarVehiculo.validarPlacaInicialConA(vehiculo.getPlaca().toUpperCase());
 			fail();
+			
+		//assert	
 		} catch (ExcepcionRegistroParqueadero e) {
 			assertEquals(ServicioRegistrarVehiculo.PLACA_INICIA_CON_A, e.getMessage());
 		}
 
 	}
 
-	/*
-	 * @Test public void validarPlacaQueIniciaConAPuedeYIngresar() { Calendar
-	 * calendar = Calendar.getInstance(); calendar.set(2019, 06, calendar.SUNDAY);
-	 * Vehiculo vehiculo = new
-	 * VehiculoTestDataBuilder().conPlaca("abcdef").conHoraEntrada(calendar.getTime(
-	 * )).build();
-	 * 
-	 * servicioRegistrarVehiculo.validarPlacaInicialConA(vehiculo.getPlaca()); }
-	 */
+	
 
 }

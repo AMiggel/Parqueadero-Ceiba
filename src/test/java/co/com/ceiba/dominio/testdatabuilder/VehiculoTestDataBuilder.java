@@ -18,14 +18,14 @@ public class VehiculoTestDataBuilder {
 	private Date horaEntrada;
 	
 	private Date horaSalida;
+	
 	private long cobroParqueo;
 	
 	public VehiculoTestDataBuilder() {
 		this.tipoVehiculo="Carro";
 		this.placa="FBC123";
 		this.cilindraje= 500;
-		this.horaEntrada= new Date();
-		this.horaSalida= null;
+		
 		
 	}
 	
@@ -40,6 +40,15 @@ public class VehiculoTestDataBuilder {
 	
 	public VehiculoTestDataBuilder conHoraEntrada(Date horaEntrada) {
 		this.horaEntrada = horaEntrada;
+		return this;
+	}
+	public VehiculoTestDataBuilder conHoraSalida(Date horaSalida) {
+		this.horaSalida=horaSalida;
+		return this;
+	}
+	
+	public VehiculoTestDataBuilder conCilindraje(int cilindraje) {
+		this.cilindraje= cilindraje;
 		return this;
 	}
 

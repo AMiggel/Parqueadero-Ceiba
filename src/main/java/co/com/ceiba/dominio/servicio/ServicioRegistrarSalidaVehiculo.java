@@ -3,14 +3,13 @@ package co.com.ceiba.dominio.servicio;
 import java.util.Calendar;
 import java.util.Date;
 
-import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistrarSalidaVehiculo;
 import co.com.ceiba.dominio.puerto.repositorio.RepositorioRegistrarVehiculo;
 
 public class ServicioRegistrarSalidaVehiculo {
 
-	public static final String VEHICULO_SALIO="El vehiculo ya salio";
+	public static final String VEHICULO_SALIO = "El vehiculo ya salio";
 	public static final long VALOR_HORA_CARRO = 1000;
 	public static final long VALOR_HORA_MOTO = 500;
 	public static final long VALOR_DIA_CARRO = 8000;
@@ -21,8 +20,6 @@ public class ServicioRegistrarSalidaVehiculo {
 	private RepositorioRegistrarSalidaVehiculo repositorioRegistrarSalidaVehiculo;
 	private RepositorioRegistrarVehiculo repositorioRegistrarVehiculo;
 
-	
-
 	public ServicioRegistrarSalidaVehiculo(RepositorioRegistrarSalidaVehiculo repositorioRegistrarSalidaVehiculo,
 			RepositorioRegistrarVehiculo repositorioRegistrarVehiculo) {
 		this.repositorioRegistrarSalidaVehiculo = repositorioRegistrarSalidaVehiculo;
@@ -32,50 +29,26 @@ public class ServicioRegistrarSalidaVehiculo {
 	public void registrarSalidaVehiculos(Vehiculo vehiculoActual) {
 		Calendar calendar = Calendar.getInstance();
 		Vehiculo vehiculo = repositorioRegistrarVehiculo.buscarVehiculoParqueado(vehiculoActual.getPlaca());
-		if (vehiculo == null) {
-			throw new ExcepcionRegistroParqueadero(VEHICULO_SALIO);
-		}
 		vehiculo.setHoraSalida(calendar.getTime());
+		cobrarPorTipoVehiculo(vehiculo);
 		repositorioRegistrarSalidaVehiculo.asignarHoraSalidaVehiculo(vehiculo);
 	}
 
-	public long cobrarTotalMoto(Vehiculo vehiculo) {
-
-		long precioACobrar = 0;
-
+	public void cobrarPorTipoVehiculo(Vehiculo vehiculo) {
 		int horas = (int) calcularTotalHorasYDias(vehiculo.getHoraIngreso(), vehiculo.getHoraSalida());
 
-		if (horas < 9 && vehiculo.getTipoVehiculo().equalsIgnoreCase(Vehiculo.MOTO)) {
-			precioACobrar = VALOR_HORA_MOTO * horas;
+		if (vehiculo.getTipoVehiculo().equalsIgnoreCase(Vehiculo.CARRO)) {
+			vehiculo.setValorParqueo(cobrar(VALOR_DIA_CARRO, VALOR_HORA_CARRO, horas));
+		} else if (vehiculo.getTipoVehiculo().equalsIgnoreCase(Vehiculo.MOTO) && vehiculo.getCilindraje() > 500) {
+			vehiculo.setValorParqueo(
+					cobrar(VALOR_DIA_MOTO, VALOR_HORA_MOTO, horas) + COBRO_POR_CILINDRAJE_MAYOR_QUINIENTOS);
 		} else {
-			cobrarPorDias(VALOR_DIA_MOTO, VALOR_HORA_MOTO, horas);
+			vehiculo.setValorParqueo(cobrar(VALOR_DIA_MOTO, VALOR_HORA_MOTO, horas));
 		}
-		if (vehiculo.getCilindraje() > CILINDRAJE_MINIMO_SIN_RECARGO_MOTO
-				&& vehiculo.getTipoVehiculo().equalsIgnoreCase(Vehiculo.MOTO)) {
-			precioACobrar = precioACobrar + COBRO_POR_CILINDRAJE_MAYOR_QUINIENTOS;
-		}
-		return precioACobrar;
-	}
-	public long cobrarTotalCarro(Vehiculo vehiculo) {
 
-		long precioACobrar = 0;
-
-		int horas = (int) calcularTotalHorasYDias(vehiculo.getHoraIngreso(), vehiculo.getHoraSalida());
-
-		if (horas < 9 && vehiculo.getTipoVehiculo().equalsIgnoreCase(Vehiculo.MOTO)) {
-			precioACobrar = VALOR_HORA_MOTO * horas;
-		} else {
-			cobrarPorDias(VALOR_DIA_MOTO, VALOR_HORA_MOTO, horas);
-		}
-		if (vehiculo.getCilindraje() > CILINDRAJE_MINIMO_SIN_RECARGO_MOTO
-				&& vehiculo.getTipoVehiculo().equalsIgnoreCase(Vehiculo.MOTO)) {
-			precioACobrar = precioACobrar + COBRO_POR_CILINDRAJE_MAYOR_QUINIENTOS;
-		}
-		return precioACobrar;
 	}
 
-
-	public long cobrarPorDias(long valorDiaTipoVehiculo, long valorHoraTipoVehiculo, int horas) {
+	public long cobrar(long valorDiaTipoVehiculo, long valorHoraTipoVehiculo, int horas) {
 
 		int dias = horas / 24;
 		long horaRestantePorDia = horas % 24;
@@ -91,14 +64,19 @@ public class ServicioRegistrarSalidaVehiculo {
 				precioACobrar = precioACobrar + valorDiaTipoVehiculo;
 			}
 		}
+
 		return precioACobrar;
 	}
 
 	public long calcularTotalHorasYDias(Date fechaIngreso, Date fechaSalida) {
 
-		long totalHoras;
-		totalHoras = ((fechaSalida.getTime() - fechaIngreso.getTime()) / 1000 / 3600);
-		return totalHoras;
-
+		long horas;
+		horas = ((fechaSalida.getTime() - fechaIngreso.getTime()) / 1000 / 3600);
+		if (horas <= 1) {
+			horas = 1;
+		} else if (horas <= 9) {
+			horas = (long) Math.floor(horas);
+		}
+		return horas;
 	}
 }

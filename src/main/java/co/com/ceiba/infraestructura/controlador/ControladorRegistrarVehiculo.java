@@ -30,7 +30,6 @@ public class ControladorRegistrarVehiculo {
 	}
 	
 	@GetMapping(value = "/{placa}")
-	@ApiOperation("buscarCarroParqueado")
 	public Vehiculo buscarCarroParqueado(@PathVariable(value ="placa")String placa) {
 		return this.manejadorRegistrarVehiculo.buscarVehiculosParqueados(placa);
 	}

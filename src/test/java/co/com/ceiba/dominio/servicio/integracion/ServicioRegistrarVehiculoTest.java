@@ -25,7 +25,6 @@ import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
 @AutoConfigureMockMvc
 public class ServicioRegistrarVehiculoTest {
 	
-	private static final String REQUEST="/parqueadero";
 	@Autowired
 	MockMvc mockMvc;
 	
@@ -35,9 +34,17 @@ public class ServicioRegistrarVehiculoTest {
 	public void registrarVehiculoEnParqueaderoTest() throws  Exception {
 		
 		Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
-		mockMvc.perform(MockMvcRequestBuilders.post(REQUEST).contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(MockMvcRequestBuilders.post("/parqueadero").contentType(MediaType.APPLICATION_JSON)
 			.content(convertirJsonAString(vehiculo))).andExpect(status().isOk());
 	}
+	
+	/*@Test
+	public void registrarSalidaVehiculo() throws  Exception {
+	Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
+	mockMvc.perform(MockMvcRequestBuilders.put("parqueadero/"+"FBC123").contentType(MediaType.APPLICATION_JSON)
+		.content(convertirJsonAString(vehiculo))).andExpect(status().isOk());
+}*/
+
 	
 	private String convertirJsonAString(Vehiculo contenido)throws JsonProcessingException{
 		return new ObjectMapper().writeValueAsString(contenido);
