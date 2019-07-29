@@ -14,7 +14,6 @@ import co.com.ceiba.aplicacion.manejador.ManejadorRegistrarVehiculo;
 import co.com.ceiba.aplicacion.manejador.consulta.ManejadorListarVehiculos;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.modelo.dto.DtoVehiculo;
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/parqueadero")
