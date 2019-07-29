@@ -10,14 +10,14 @@ import co.com.ceiba.infraestructura.adaptador.repositorio.vehiculo.IRepositorioR
 import co.com.ceiba.infraestructura.mapper.VehiculoMapper;
 
 @Repository
-public class daoVehiculoEnMemoria implements DaoVehiculo {
+public class DaoVehiculoEnMemoria implements DaoVehiculo {
 	
 	private VehiculoMapper vehiculoMapper;
 	private IRepositorioRegistrarVehiculoEnMemoria repositorioRegistrarVehiculoEnMemoria;
 	
 	
 
-	public daoVehiculoEnMemoria(VehiculoMapper vehiculoMapper,
+	public DaoVehiculoEnMemoria(VehiculoMapper vehiculoMapper,
 			IRepositorioRegistrarVehiculoEnMemoria repositorioRegistrarVehiculoEnMemoria) {
 		this.vehiculoMapper = vehiculoMapper;
 		this.repositorioRegistrarVehiculoEnMemoria= repositorioRegistrarVehiculoEnMemoria;

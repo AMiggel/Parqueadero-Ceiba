@@ -50,7 +50,7 @@ public class ServicioRegistrarVehiculo {
 
 	public Date registrarHoraEntrada() {
 		Calendar calendar = Calendar.getInstance();
-		Date horaEntrada = new Date();
+		Date horaEntrada;
 		horaEntrada = calendar.getTime();
 		return horaEntrada;
 	}
