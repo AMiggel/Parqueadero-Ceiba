@@ -26,13 +26,14 @@ public class ServicioRegistrarSalidaVehiculo {
 		this.repositorioRegistrarVehiculo = repositorioRegistrarVehiculo;
 	}
 
-	public void registrarSalidaVehiculos(Vehiculo vehiculoActual) {
+	public void registrarSalidaVehiculos(String vehiculoActual) {
 		Calendar calendar = Calendar.getInstance();
-		Vehiculo vehiculo = repositorioRegistrarVehiculo.buscarVehiculoParqueado(vehiculoActual.getPlaca());
+		Vehiculo vehiculo = repositorioRegistrarVehiculo.buscarVehiculoParqueado(vehiculoActual);
 		vehiculo.setHoraSalida(calendar.getTime());
 		cobrarPorTipoVehiculo(vehiculo);
 		repositorioRegistrarSalidaVehiculo.asignarHoraSalidaVehiculo(vehiculo);
 	}
+	
 
 	public void cobrarPorTipoVehiculo(Vehiculo vehiculo) {
 		int horas = (int) calcularTotalHorasYDias(vehiculo.getHoraIngreso(), vehiculo.getHoraSalida());

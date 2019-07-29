@@ -42,9 +42,8 @@ public class ControladorRegistrarVehiculo {
 	}
 	
 	@PutMapping(value="/{placa}")
-	public void actualizarSalidaVehiculo(@PathVariable(value="placa")String placa,
-			@RequestBody Vehiculo vehiculo) {
-		this.manejadorRegistrarVehiculo.actualizarSalida(vehiculo);
+	public void actualizarSalidaVehiculo(@PathVariable(value="placa")String placa) {
+		this.manejadorRegistrarVehiculo.actualizarSalida(placa);
 		
 	}
 	

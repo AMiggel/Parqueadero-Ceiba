@@ -26,7 +26,7 @@ public class daoVehiculoEnMemoria implements DaoVehiculo {
 
 	@Override
 	public List<DtoVehiculo> listar() {
-		return vehiculoMapper.mappearListaADominio(repositorioRegistrarVehiculoEnMemoria.findAll());
+		return vehiculoMapper.mappearListaADominio(repositorioRegistrarVehiculoEnMemoria.listar());
 	}
 
 }
