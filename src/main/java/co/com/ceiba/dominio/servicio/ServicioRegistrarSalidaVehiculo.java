@@ -75,8 +75,6 @@ public class ServicioRegistrarSalidaVehiculo {
 		horas = ((fechaSalida.getTime() - fechaIngreso.getTime()) / 1000 / 3600);
 		if (horas <= 1) {
 			horas = 1;
-		} else if (horas <= 9) {
-			horas = (long) Math.floor(horas);
 		}
 		return horas;
 	}
