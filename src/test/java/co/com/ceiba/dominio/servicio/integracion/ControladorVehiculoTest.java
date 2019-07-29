@@ -1,6 +1,5 @@
 package co.com.ceiba.dominio.servicio.integracion;
 
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
@@ -20,35 +19,43 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.testdatabuilder.VehiculoTestDataBuilder;
 
-
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 public class ControladorVehiculoTest {
-	
+
 	@Autowired
 	MockMvc mockMvc;
-	
-	
-	
+
 	@Test
-	public void registrarVehiculoEnParqueaderoTest() throws  Exception {
-		
+	public void registrarVehiculoEnParqueadero() throws Exception {
+
 		Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
 		mockMvc.perform(MockMvcRequestBuilders.post("/parqueadero").contentType(MediaType.APPLICATION_JSON)
-			.content(convertirJsonAString(vehiculo))).andExpect(status().isOk());
+				.content(convertirJsonAString(vehiculo))).andExpect(status().isOk());
+	}
+
+	@Test
+	public void registrarSalidaVehiculo() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.put("/parqueadero/" + "CXS123").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
 	@Test
-	public void registrarSalidaVehiculo() throws  Exception {
-	mockMvc.perform(MockMvcRequestBuilders.put("/parqueadero/"+"CXS123").contentType
-			(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isOk());
-}
-
-	
-	private String convertirJsonAString(Vehiculo contenido)throws JsonProcessingException{
-		return new ObjectMapper().writeValueAsString(contenido);
+	public void listarVehiculosParqueados() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/parqueadero/" + "vehiculos").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
+	@Test
+	public void consultarVehiculoParqueado() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/parqueadero/" + "CXS123").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk());
+	}
+
+
+	private String convertirJsonAString(Vehiculo contenido) throws JsonProcessingException {
+		return new ObjectMapper().writeValueAsString(contenido);
+	}
 
 }
