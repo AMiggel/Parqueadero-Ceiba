@@ -37,6 +37,10 @@ public class ControladorRegistrarVehiculo {
 		this.manejadorRegistrarVehiculo.ejecutar(vehiculo);
 	}
 	
+	@GetMapping(value = "/{placa}")
+	public Vehiculo buscarCarroParqueado(@PathVariable(value ="placa")String placa) {
+		return this.manejadorRegistrarVehiculo.buscarVehiculosParqueados(placa);
+	}
 	
 	@PutMapping(value="/{placa}")
 	public void actualizarSalidaVehiculo(@PathVariable(value="placa")String placa) {
