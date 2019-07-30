@@ -18,9 +18,12 @@ public class RepositorioRegistrarSalidaImpl implements RepositorioRegistrarSalid
 		this.vehiculoMapper = vehiculoMapper;
 	}
 
+
 	@Override
 	public void asignarHoraSalidaVehiculo(Vehiculo vehiculo) {
-		repositorioVehiculoEnMemoria.save(vehiculoMapper.mappearAEntidad(vehiculo));
+		 repositorioVehiculoEnMemoria.save(vehiculoMapper.mappearAEntidad(vehiculo));
 	}
 
+	
 }
+

@@ -10,7 +10,6 @@ public class DtoVehiculo {
 	
 	
 	public DtoVehiculo(String placa, String tipoVehiculo, Date fechaIngreso) {
-		super();
 		this.placa = placa;
 		this.tipoVehiculo = tipoVehiculo;
 		this.fechaIngreso = fechaIngreso;

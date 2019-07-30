@@ -2,6 +2,7 @@ package co.com.ceiba.infraestructura.controlador;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import co.com.ceiba.aplicacion.manejador.consulta.ManejadorListarVehiculos;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.dominio.modelo.dto.DtoVehiculo;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/parqueadero")
 public class ControladorRegistrarVehiculo {
@@ -35,10 +37,6 @@ public class ControladorRegistrarVehiculo {
 		this.manejadorRegistrarVehiculo.ejecutar(vehiculo);
 	}
 	
-	@GetMapping(value = "/{placa}")
-	public Vehiculo buscarCarroParqueado(@PathVariable(value ="placa")String placa) {
-		return this.manejadorRegistrarVehiculo.buscarVehiculosParqueados(placa);
-	}
 	
 	@PutMapping(value="/{placa}")
 	public void actualizarSalidaVehiculo(@PathVariable(value="placa")String placa) {

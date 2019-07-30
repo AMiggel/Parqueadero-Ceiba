@@ -51,7 +51,14 @@ public class EntidadVehiculo implements Serializable {
 		this.horaSalida = horaSalida;
 		this.cobroParqueo= cobroParqueo;
 	}
+	
+	public EntidadVehiculo(String tipoVehiculo, String placa, Date horaEntrada) {
+		this.tipoVehiculo = tipoVehiculo;
+		this.placa = placa;
+		this.horaEntrada = horaEntrada;
+	}
 
+	
 	public int getId() {
 		return id;
 	}

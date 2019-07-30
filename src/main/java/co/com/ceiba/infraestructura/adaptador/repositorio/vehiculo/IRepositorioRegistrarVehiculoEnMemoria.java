@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import co.com.ceiba.dominio.modelo.Vehiculo;
 import co.com.ceiba.infraestructura.adaptador.entidad.EntidadVehiculo;
 
 @Repository
@@ -21,5 +22,7 @@ public interface IRepositorioRegistrarVehiculoEnMemoria extends JpaRepository<En
 	
 	@Query("select v from vehiculos v where v.horaSalida is null")
 	List<EntidadVehiculo> listar();
+
+	void save(Vehiculo vehiculo);
 }
  

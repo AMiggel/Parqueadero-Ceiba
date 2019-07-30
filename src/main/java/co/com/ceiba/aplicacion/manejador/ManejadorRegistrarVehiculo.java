@@ -25,11 +25,9 @@ public class ManejadorRegistrarVehiculo {
 		servicioRegistrarVehiculo.ejecutar(vehiculoCreado);
 	}
 
-	public Vehiculo buscarVehiculosParqueados(String placa) {
-		return servicioRegistrarVehiculo.buscarVehiculoParqueado(placa);
-	}
 
 	public void actualizarSalida(String placa) {
+			System.err.println(placa);
 		servicioRegistrarSalidaVehiculo.registrarSalidaVehiculos(placa);
 	}
 }

@@ -26,7 +26,7 @@ public class Vehiculo {
 
 	public Vehiculo() {
 	}
-
+	
 	public Vehiculo(int id,long cobroParqueo, String tipoVehiculo, String placa, int cilindraje,Date horaIngreso, Date horaSalida) {
 		ValidadorArgumento.validarCampoObligatorio(tipoVehiculo, TIPO_VEHICULO_ES_VALOR_OBLIGATORIO);
 		ValidadorArgumento.validarCampoObligatorio(placa, PLACA_ES_VALOR_OBLIGATORIO);

@@ -19,13 +19,14 @@ public class VehiculoMapper {
 	}
 
 	public Vehiculo mappearADominio(EntidadVehiculo entidadVehiculo) {
+		
 		return new Vehiculo(entidadVehiculo.getId(), entidadVehiculo.getCobroParqueo(),
 				entidadVehiculo.getTipoVehiculo(), entidadVehiculo.getPlaca(), entidadVehiculo.getCilindraje(),
 				entidadVehiculo.getHoraEntrada(), entidadVehiculo.getHoraSalida());
 
 	}
 
-	public List<DtoVehiculo> mappearListaADominio(List<EntidadVehiculo> listaEntidadVehiculo) {
+	public List<DtoVehiculo> mappearListaAEntidad(List<EntidadVehiculo> listaEntidadVehiculo) {
 		List<DtoVehiculo> listaVehiculos = new ArrayList<>();
 
 		for (EntidadVehiculo entidadVehiculo : listaEntidadVehiculo) {
@@ -35,6 +36,6 @@ public class VehiculoMapper {
 		}
 
 		return listaVehiculos;
-	}
-
+	}	
+	
 }
