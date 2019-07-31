@@ -5,10 +5,12 @@ import co.com.ceiba.dominio.constante.excepcion.ExcepcionRegistroParqueadero;
 import co.com.ceiba.dominio.constante.excepcion.ExcepcionValorObligatorio;
 import co.com.ceiba.dominio.modelo.Vehiculo;
 
-public class ValidadorArgumento {
+public final class ValidadorArgumento {
 	
-	
-	
+	 private  ValidadorArgumento() {
+		 throw new IllegalStateException("Utility class");
+	}
+	 
 	public static void validarCampoObligatorio(Object valor, String mensaje){
 			if (valor == null) {
 				throw new ExcepcionValorObligatorio(mensaje);

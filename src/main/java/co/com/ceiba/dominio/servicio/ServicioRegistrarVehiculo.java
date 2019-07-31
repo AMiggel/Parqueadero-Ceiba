@@ -36,14 +36,12 @@ public class ServicioRegistrarVehiculo {
 	}
 	
 	public void validarPlacaInicialConA(String placa) {
-		if (placa.charAt(0) == INICIAL_PLACA_CON_RESTRICCION) {
-			if (LocalDateTime.now().getDayOfWeek() != DayOfWeek.SUNDAY
-					|| LocalDateTime.now().getDayOfWeek() != DayOfWeek.MONDAY) {
+		if ((placa.charAt(0) == INICIAL_PLACA_CON_RESTRICCION) && (LocalDateTime.now().getDayOfWeek() != DayOfWeek.SUNDAY
+					|| LocalDateTime.now().getDayOfWeek() != DayOfWeek.MONDAY)) {
 				throw new ExcepcionRegistroParqueadero(PLACA_INICIA_CON_A);
 			}
 		}
-	}
-
+	
 	public Date registrarHoraEntrada() {
 		Calendar calendar = Calendar.getInstance();
 		Date horaEntrada;

@@ -27,7 +27,6 @@ public class ManejadorRegistrarVehiculo {
 
 
 	public void actualizarSalida(String placa) {
-			System.err.println(placa);
 		servicioRegistrarSalidaVehiculo.registrarSalidaVehiculos(placa);
 	}
 }
