@@ -30,18 +30,17 @@ public class EntidadVehiculo implements Serializable {
 	private int cilindraje;
 	@NotNull
 	private Date horaEntrada;
-	
+
 	private Date horaSalida;
-	
+
 	private long cobroParqueo;
 
-	
 	public EntidadVehiculo() {
 
 	}
 
-	public EntidadVehiculo(int id, long cobroParqueo,String tipoVehiculo, String placa, int cilindraje, Date horaEntrada,
-			Date horaSalida) {
+	public EntidadVehiculo(int id, long cobroParqueo, String tipoVehiculo, String placa, int cilindraje,
+			Date horaEntrada, Date horaSalida) {
 
 		this.id = id;
 		this.tipoVehiculo = tipoVehiculo;
@@ -49,46 +48,24 @@ public class EntidadVehiculo implements Serializable {
 		this.cilindraje = cilindraje;
 		this.horaEntrada = horaEntrada;
 		this.horaSalida = horaSalida;
-		this.cobroParqueo= cobroParqueo;
-	}
-	
-	public EntidadVehiculo(String tipoVehiculo, String placa, Date horaEntrada) {
-		this.tipoVehiculo = tipoVehiculo;
-		this.placa = placa;
-		this.horaEntrada = horaEntrada;
+		this.cobroParqueo = cobroParqueo;
 	}
 
-	
+
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getTipoVehiculo() {
 		return tipoVehiculo;
 	}
 
-	public void setTipoVehiculo(String tipoVehiculo) {
-		this.tipoVehiculo = tipoVehiculo;
-	}
-
 	public String getPlaca() {
 		return placa;
 	}
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
-
 	public int getCilindraje() {
 		return cilindraje;
-	}
-
-	public void setCilindraje(int cilindraje) {
-		this.cilindraje = cilindraje;
 	}
 
 	public static long getSerialversionuid() {
@@ -115,9 +92,4 @@ public class EntidadVehiculo implements Serializable {
 		return cobroParqueo;
 	}
 
-	public void setCobroParqueo(long cobroParqueo) {
-		this.cobroParqueo = cobroParqueo;
-	}
-
-	
 }

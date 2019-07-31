@@ -14,7 +14,7 @@ import co.com.ceiba.infraestructura.adaptador.entidad.EntidadVehiculo;
 @Repository
 public interface IRepositorioRegistrarVehiculoEnMemoria extends JpaRepository<EntidadVehiculo, Integer>{
 	
-	@Query("select v from vehiculos v where v.placa = :placa and v.horaSalida is null")
+	@Query("select v from vehiculos v where v.placa = :placa")
 	EntidadVehiculo buscarPorPlacaAndSalida(@Param("placa")String placa);
 	
 	@Query("select count(v.id) from vehiculos v where v.tipoVehiculo = :tipoVehiculo and v.horaSalida is null")
@@ -23,6 +23,6 @@ public interface IRepositorioRegistrarVehiculoEnMemoria extends JpaRepository<En
 	@Query("select v from vehiculos v where v.horaSalida is null")
 	List<EntidadVehiculo> listar();
 
-	void save(Vehiculo vehiculo);
+	
 }
  

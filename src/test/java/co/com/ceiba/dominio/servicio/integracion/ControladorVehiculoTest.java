@@ -47,11 +47,6 @@ public class ControladorVehiculoTest {
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
-	@Test
-	public void consultarVehiculoParqueado() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/parqueadero/" + "CXS123").contentType(MediaType.APPLICATION_JSON))
-				.andExpect(MockMvcResultMatchers.status().isOk());
-	}
 
 
 	private String convertirJsonAString(Vehiculo contenido) throws JsonProcessingException {

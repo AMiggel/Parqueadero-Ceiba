@@ -25,5 +25,6 @@ public interface RepositorioRegistrarVehiculo{
 	 * @param tipoVehiculo
 	 */
 	public int verificarEspacioDisponible(String tipoVehiculo);
+	
 
 }

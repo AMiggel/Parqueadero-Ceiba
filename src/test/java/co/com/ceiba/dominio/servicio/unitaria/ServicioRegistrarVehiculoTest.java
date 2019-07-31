@@ -28,18 +28,6 @@ public class ServicioRegistrarVehiculoTest {
 
 	}
 
-	@Test
-	public void buscarVehiculoParqueadoRetornaVehiculo() {
-		// Arrange
-		Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
-		Mockito.when(repositorioRegistroVehiculo.buscarVehiculoParqueado(vehiculo.getPlaca())).thenReturn(vehiculo);
-
-		// act
-		Vehiculo vehiculoEsperado = servicioRegistrarVehiculo.buscarVehiculoParqueado(vehiculo.getPlaca());
-		// assert
-		assertEquals(vehiculo, vehiculoEsperado);
-	}
-
 
 	@Test
 	public void verificarCupoDisponibleParaCarro() {

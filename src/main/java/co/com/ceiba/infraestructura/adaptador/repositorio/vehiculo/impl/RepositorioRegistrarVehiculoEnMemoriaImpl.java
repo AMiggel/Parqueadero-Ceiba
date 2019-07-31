@@ -34,5 +34,7 @@ public class RepositorioRegistrarVehiculoEnMemoriaImpl implements RepositorioReg
 		return this.repositorioVehiculoEnMemoria.contarEspacioDisponiblePorTipo(tipoVehiculo);
 	}
 
+
+
 	
 }

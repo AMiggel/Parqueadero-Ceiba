@@ -34,10 +34,6 @@ public class ServicioRegistrarVehiculo {
 		this.repositorioRegistroVehiculo.registrarVehiculo(vehiculo);
 
 	}
-
-	public Vehiculo buscarVehiculoParqueado(String placa) {
-		return this.repositorioRegistroVehiculo.buscarVehiculoParqueado(placa);
-	}
 	
 	public void validarPlacaInicialConA(String placa) {
 		if (placa.charAt(0) == INICIAL_PLACA_CON_RESTRICCION) {
