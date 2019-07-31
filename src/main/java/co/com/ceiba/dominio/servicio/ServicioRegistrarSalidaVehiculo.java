@@ -48,6 +48,7 @@ public class ServicioRegistrarSalidaVehiculo {
 		}
 
 	}
+	
 
 	public long cobrar(long valorDiaTipoVehiculo, long valorHoraTipoVehiculo, int horas) {
 
@@ -65,7 +66,6 @@ public class ServicioRegistrarSalidaVehiculo {
 				precioACobrar = precioACobrar + valorDiaTipoVehiculo;
 			}
 		}
-
 		return precioACobrar;
 	}
 
