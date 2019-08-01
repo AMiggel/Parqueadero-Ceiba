@@ -45,6 +45,7 @@ public class ControladorVehiculoTest {
 	public void listarVehiculosParqueados() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/parqueadero/" + "vehiculos").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(MockMvcResultMatchers.status().isOk());
+				// .andExpect(json);
 	}
 	
 

@@ -22,7 +22,7 @@ public class VehiculoTest {
 		try {
 			vehiculoTestDataBuilder.conPlaca(null).build();
 			fail();
-			// assert
+		// assert
 		} catch (ExcepcionValorObligatorio e) {
 			assertEquals(Vehiculo.PLACA_ES_VALOR_OBLIGATORIO, e.getMessage());
 		}
@@ -38,7 +38,7 @@ public class VehiculoTest {
 		try {
 			vehiculoTestDataBuilder.conTipo(null).build();
 			fail();
-			// assert
+		// assert
 		} catch (ExcepcionValorObligatorio e) {
 			assertEquals(Vehiculo.TIPO_VEHICULO_ES_VALOR_OBLIGATORIO, e.getMessage());
 		}
