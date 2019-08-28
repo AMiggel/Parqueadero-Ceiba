@@ -172,7 +172,7 @@ public class ServicioRegistrarSalidaVehiculoTest {
 	}
 	
 	@Test
-	public void generarCobroPorUnDiayCilindrajeMayorAQuinientosMoto() {
+	public void generarCobroPorUnDiaYCilindrajeMayorAQuinientosMoto() {
 		// arrange
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2019, 6, 28, 15, 45);

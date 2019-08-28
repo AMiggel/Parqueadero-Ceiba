@@ -26,7 +26,7 @@ public class ManejadorRegistrarVehiculo {
 	}
 
 
-	public void actualizarSalida(String placa) {
-		servicioRegistrarSalidaVehiculo.registrarSalidaVehiculos(placa);
+	public Vehiculo actualizarSalida(String placa) {
+		return servicioRegistrarSalidaVehiculo.registrarSalidaVehiculos(placa);
 	}
 }

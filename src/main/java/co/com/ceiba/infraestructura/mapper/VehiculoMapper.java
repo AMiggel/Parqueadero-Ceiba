@@ -32,7 +32,7 @@ public class VehiculoMapper {
 		for (EntidadVehiculo entidadVehiculo : listaEntidadVehiculo) {
 
 			listaVehiculos.add(new DtoVehiculo(entidadVehiculo.getPlaca(), entidadVehiculo.getTipoVehiculo(),
-					entidadVehiculo.getHoraEntrada()));
+					entidadVehiculo.getHoraEntrada(), entidadVehiculo.getCobroParqueo()));
 		}
 
 		return listaVehiculos;

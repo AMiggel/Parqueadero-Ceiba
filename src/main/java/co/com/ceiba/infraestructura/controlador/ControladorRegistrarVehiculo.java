@@ -38,8 +38,8 @@ public class ControladorRegistrarVehiculo {
 	}
 	
 	@PutMapping(value="/{placa}")
-	public void actualizarSalidaVehiculo(@PathVariable(value="placa")String placa) {
-		this.manejadorRegistrarVehiculo.actualizarSalida(placa);
+	public Vehiculo actualizarSalidaVehiculo(@PathVariable(value="placa")String placa) {
+		return this.manejadorRegistrarVehiculo.actualizarSalida(placa);
 		
 	}
 	
